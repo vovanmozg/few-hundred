@@ -6,14 +6,16 @@
  * @flow
  */
 
-import React, {Component} from 'react';
+import * as React from 'react';
 import QuizItem from './screens/QuizItem';
+import { SafeAreaView } from 'react-native';
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends React.Component {
   render() {
     return (
-      <QuizItem />
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+          <QuizItem />
+        </SafeAreaView>
     );
   }
 }

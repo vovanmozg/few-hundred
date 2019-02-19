@@ -1,10 +1,27 @@
+import PropTypes from 'prop-types';
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-class Choise extends React.Component {
-  render() {
-    return(<View><Text>{this.props.text}</Text></View>);
-  }
+
+const style = StyleSheet.create({
+  container: {
+    borderWidth: 1,
+    borderColor: '#707',
+    backgroundColor: '#f00',
+  },
+});
+
+function Choise({ text }) {
+  return (
+    <View style={style.container}>
+      <Text>{text}</Text>
+    </View>
+  );
 }
+
+Choise.propTypes = {
+  text: PropTypes.string.isRequired,
+};
+
 
 export default Choise;

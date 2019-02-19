@@ -4,17 +4,20 @@ import Choice from './Choice';
 
 class Choices extends React.Component {
   render() {
-    console.warn(this.props)
+    const { choices } = this.props;
+
+
     return (
-      <View>
-        {
-          // this.props.choices.map((choice) => {
-          //   return (<Choice text={ choice }></Choice>)
-          // })
-        }
+      <View style={{ backgroundColor: '#993' }}>
+        <Text>
+          {
+            Object.entries(choices).map((choice) => {
+              return (<Choice>{choice}</Choice>);
+            })
+          }
+        </Text>
       </View>
     );
-
   }
 }
 
