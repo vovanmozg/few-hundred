@@ -12,6 +12,7 @@ class Choices extends React.Component {
 
           {
             Object.entries(choices).map((choice) => {
+              console.warn(choice)
               return (<Choice>{choice}</Choice>);
             })
           }

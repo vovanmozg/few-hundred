@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import { ListItem } from 'react-native-material-ui';
 
 const style = StyleSheet.create({
   container: {
@@ -11,10 +11,12 @@ const style = StyleSheet.create({
   },
 });
 
-function Choise({ text }) {
+function Choise({ children }) {
   return (
     <View style={style.container}>
-      <Text>{text}</Text>
+      <ListItem>
+      <Text>{children}</Text>
+      </ListItem>
     </View>
   );
 }
