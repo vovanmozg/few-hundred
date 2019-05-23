@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import Question from './components/Question';
 import Choices from './components/Choices';
 import Next from './components/Next';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class QuizItem extends React.Component {
 
@@ -25,6 +26,8 @@ class QuizItem extends React.Component {
 
     return (
       <View style={ { backgroundColor: '#ff5' } }>
+
+        <Icon name="rocket" size={30} color="#900" />
         <Question text={quizItem.question} />
 
         <Choices choices={quizItem.choices} answer={quizItem.answer} />

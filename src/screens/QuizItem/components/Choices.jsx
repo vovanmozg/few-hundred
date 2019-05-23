@@ -9,13 +9,13 @@ class Choices extends React.Component {
 
     return (
       <View style={{ backgroundColor: '#993' }}>
-        <Text>
+
           {
             Object.entries(choices).map((choice) => {
               return (<Choice>{choice}</Choice>);
             })
           }
-        </Text>
+
       </View>
     );
   }
