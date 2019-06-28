@@ -1,25 +1,24 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { List } from 'native-base';
+import PropTypes from 'prop-types';
+import { choiceType } from '../../../types';
 import Choice from './Choice';
 
-class Choices extends React.Component {
-  render() {
-    const { choices } = this.props;
+const randSort = () => Math.random() > 0.5;
 
+const Choices = ({ choices }) => (
+  <List>
+    {
+      choices.sort(randSort).map((choice) => {
+        console.warn(choice);
+        return (<Choice>{choice}</Choice>);
+      })
+    }
+  </List>
+);
 
-    return (
-      <View style={{ backgroundColor: '#993' }}>
-
-          {
-            Object.entries(choices).map((choice) => {
-              console.warn(choice)
-              return (<Choice>{choice}</Choice>);
-            })
-          }
-
-      </View>
-    );
-  }
-}
+Choices.propTypes = {
+  choices: PropTypes.arrayOf(choiceType).isRequired,
+};
 
 export default Choices;

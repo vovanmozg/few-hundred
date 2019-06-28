@@ -1,29 +1,32 @@
-import PropTypes from 'prop-types';
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { ListItem } from 'react-native-material-ui';
+import { StyleSheet } from 'react-native'; // add TouchableHighlight
+import { ListItem, Text } from 'native-base';
+import { choiceType } from '../../../types';
 
 const style = StyleSheet.create({
   container: {
     borderWidth: 1,
-    borderColor: '#707',
-    backgroundColor: '#f00',
+    borderColor: 'red',
+    // alignSelf: 'stretch',
+    width: '95%',
   },
 });
 
 function Choise({ children }) {
+  const onPressButton = () => {
+    console.warn(children);
+  };
+
   return (
-    <View style={style.container}>
-      <ListItem>
-      <Text>{children}</Text>
-      </ListItem>
-    </View>
+    <ListItem onPress={onPressButton} style={style.container}>
+      <Text>{children.value}</Text>
+    </ListItem>
+
   );
 }
 
 Choise.propTypes = {
-  text: PropTypes.string.isRequired,
+  children: choiceType.isRequired,
 };
-
 
 export default Choise;
