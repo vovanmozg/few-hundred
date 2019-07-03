@@ -10,7 +10,7 @@ const Choices = ({ choices }) => (
   <List>
     {
       choices.sort(randSort).map((choice) => {
-        console.warn(choice);
+        choice.key = 'key' + Math.random();
         return (<Choice>{choice}</Choice>);
       })
     }

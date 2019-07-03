@@ -14,7 +14,7 @@ const style = StyleSheet.create({
 
 function Choise({ children }) {
   const onPressButton = () => {
-    console.warn(children);
+    //console.warn(children);
   };
 
   return (

@@ -6,28 +6,17 @@
  * @flow
  */
 
-import * as React from 'react';
-import { SafeAreaView } from 'react-native';
-import {
-  Container,
-  Header,
-  Content,
-  Footer,
-} from 'native-base';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 
-import QuizItem from './screens/QuizItem';
-import Next from './screens/QuizItem/components/Next';
+import MainScreen from './screens/MainScreen';
+import QuizScreen from './screens/QuizScreen';
 
-export default () => (
-  <Container>
-    <Header />
-    <Content padder>
-      <SafeAreaView style={{ flex: 1 }}>
-        <QuizItem />
-      </SafeAreaView>
-    </Content>
-    <Footer>
-      <Next />
-    </Footer>
-  </Container>
-);
+const AppNavigator = createStackNavigator({
+  Home: MainScreen,
+  Quiz: QuizScreen,
+},
+{
+  initialRouteName: 'Home',
+});
+
+export default createAppContainer(AppNavigator);
