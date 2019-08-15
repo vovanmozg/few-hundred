@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "react-native start",
     "test": "jest"
   },
   "dependencies": {
     "native-base": "^2.12.1",
     "prop-types": "^15.7.2",
-    "react": "16.6.3",
-    "react-native": "0.58.4",
+    "react": "16.8.6",
+    "react-native": "0.60.5",
     "react-native-gesture-handler": "^1.2.1",
     "react-native-render-html": "^4.1.1",
     "react-native-vector-icons": "^6.4.2",
@@ -21,16 +21,18 @@
     "ruby-questions": "^0.2.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "23.6.0",
+    "@babel/core": "^7.5.0",
+    "@babel/runtime": "^7.5.0",
+    "@react-native-community/eslint-config": "^0.0.3",
+    "babel-jest": "^24.1.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "jest": "23.6.0",
-    "metro-react-native-babel-preset": "^0.51.1",
-    "react-test-renderer": "16.6.0-alpha.8af6728"
+    "jest": "^24.1.0",
+    "metro-react-native-babel-preset": "0.54.1",
+    "react-test-renderer": "16.8.6"
   },
   "jest": {
     "preset": "react-native"

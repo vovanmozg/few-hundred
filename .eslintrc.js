@@ -1,3 +1,5 @@
 module.exports = {
-    "extends": "airbnb"
+  root: true,
+  extends: '@react-native-community',
+  "extends": "airbnb",
 };
