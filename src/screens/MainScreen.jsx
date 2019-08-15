@@ -1,37 +1,30 @@
 import * as React from 'react';
-import { Image, SafeAreaView, View } from 'react-native';
-import { Button, Text, Container, Content, Footer, Header } from 'native-base';
-import QuizItem from "./QuizScreen";
-
+import { Image, SafeAreaView } from 'react-native';
+import {
+  Button, Text, Container, Content,
+} from 'native-base';
+import ruby from '../assets/img/ruby.png';
 
 class MainScreen extends React.PureComponent {
   render() {
-    const onPress = () => this.props.navigation.navigate('Quiz');
+    const { props } = this;
+    const onPress = () => props.navigation.navigate('Quiz');
 
     return (
-      <Container style={{}} >
+      <Container style={{}}>
 
+        <Content padder style={{}} contentContainerStyle={{ flex: 1 }}>
 
-      <Content padder style={{}} contentContainerStyle={{  flex: 1 }}>
-
-        <SafeAreaView style={{ flex: 1, alignSelf: 'center', justifyContent: 'center', }}>
+          <SafeAreaView style={{ flex: 1, alignSelf: 'center', justifyContent: 'center', }}>
 
             <Image
-              source={require('../assets/img/ruby.png')}
-              style={{width: 117, height: 92,justifyContent: 'center',}}
+              source={ruby}
+              style={{ width: 117, height: 92, justifyContent: 'center', }}
             />
-            <Button style={{ alignSelf: 'center', marginTop: 20 }} onPress={onPress}><Text>Play!</Text></Button>
-
-
-
-
-
-        </SafeAreaView>
-      </Content>
-      <Footer>
-
-      </Footer>
-    </Container>
+            <Button style={{ alignSelf: 'center', marginTop: 100 }} onPress={onPress}><Text>Play!</Text></Button>
+          </SafeAreaView>
+        </Content>
+      </Container>
     );
   }
 }

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 export const choiceType = PropTypes.shape({
-  index: PropTypes.number,
+  index: PropTypes.string,
   value: PropTypes.string,
 });
 

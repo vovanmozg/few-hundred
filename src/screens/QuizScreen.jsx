@@ -1,6 +1,10 @@
 import * as React from 'react';
-import { Container, Content, Footer, Header } from "native-base";
+import {
+  Container, Content, Footer, Header,
+} from 'native-base';
 import { SafeAreaView } from 'react-native';
+
+
 
 
 import QuizItem from './QuizItem';

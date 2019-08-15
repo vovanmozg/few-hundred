@@ -2,13 +2,31 @@ import * as React from 'react';
 import { Card, CardItem } from 'native-base';
 import Question from './components/Question';
 import Choices from './components/Choices';
+import rq from 'ruby-questions';
 
 
 class QuizItem extends React.Component {
+  transformChoices(choices) {
+    // const mapper = (choiceIndex) => {
+    //   return { index: choiceIndex, value: choices[choiceIndex] };
+    // };
 
+    return Object.keys(choices).map(
+      choiceIndex => ({ index: choiceIndex, value: choices[choiceIndex] })
+    );
+  }
 
   render() {
+    const item = rq.ruby[Math.floor(Math.random() * rq.ruby.length)];
+
     const quizItem = {
+      ...item,
+      choices: this.transformChoices(item.choices),
+    };
+
+
+
+/*    const quizItem = {
       question: 'What will be the output of the following code?\n<code>2 ** (14 ** 10)</code>',
       type: 'mc',
       choices: [
@@ -21,9 +39,11 @@ class QuizItem extends React.Component {
         'beginner-level',
       ],
       explanation: '',
-    };
+    };*/
 
     // <Icon name="rocket" size={30} color="#900" />
+
+
     return (
       <Card>
         <CardItem header bordered>
