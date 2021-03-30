@@ -6,11 +6,11 @@ import Choice from './Choice';
 
 const randSort = () => Math.random() > 0.5;
 
-const Choices = ({ choices }) => (
+const Choices = ({ choices, quizItemId }) => (
   <List>
     {
       choices.sort(randSort).map((choice) => {
-        return (<Choice key={choice.index}>{choice}</Choice>);
+        return (<Choice key={choice.index} quizItemId={quizItemId}>{choice}</Choice>);
       })
     }
   </List>

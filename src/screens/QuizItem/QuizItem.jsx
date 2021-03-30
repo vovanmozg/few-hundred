@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Card, CardItem } from 'native-base';
-import Question from './components/Question';
+//import Question from './components/Question';
 import Choices from './components/Choices';
 import rq from 'ruby-questions';
 
@@ -17,7 +17,11 @@ class QuizItem extends React.Component {
   }
 
   render() {
-    const item = rq.ruby[Math.floor(Math.random() * rq.ruby.length)];
+
+    const item = this.props.item;
+
+
+    // const item = rq.ruby[Math.floor(Math.random() * rq.ruby.length)];
 
     const quizItem = {
       ...item,
@@ -48,11 +52,11 @@ class QuizItem extends React.Component {
       <Card>
         <CardItem header bordered>
 
-          <Question text={quizItem.question} />
+
 
         </CardItem>
         <CardItem>
-          <Choices choices={quizItem.choices} answer={quizItem.answer} />
+          <Choices choices={quizItem.choices} quizItemId={quizItem} answer={quizItem.answer} />
 
         </CardItem>
         <CardItem>

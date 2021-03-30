@@ -7,8 +7,7 @@ import { Button, Text } from 'native-base';
 class Next extends React.Component {
   render() {
     const onPress = () => {
-      console.warn(1);
-      //this.props.next();
+      this.props.next();
     };
 
     return(<Button onPress={onPress} ><Text>Next</Text></Button>);
@@ -16,7 +15,7 @@ class Next extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  next: () => dispatch({ type: 'NEXT_QUESTION'}),
+  next: () => dispatch({ type: 'NEXT_QUESTION' }),
 });
 
 export default connect(null, mapDispatchToProps)(Next);

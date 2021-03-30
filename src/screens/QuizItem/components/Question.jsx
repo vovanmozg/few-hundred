@@ -13,7 +13,7 @@ class Question extends React.Component {
 
 
     return (<HTML html={this.props.text} />)
-    // return (<View><Text>{this.props.text}</Text></View>);
+     //return (<View><Text>{this.props.text}</Text></View>);
   }
 }
 

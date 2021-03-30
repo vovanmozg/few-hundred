@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native'; // add TouchableHighlight
 import { ListItem, Text } from 'native-base';
 import { choiceType } from '../../../types';
+import { connect } from 'react-redux';
 
 const style = StyleSheet.create({
   container: {
@@ -12,9 +13,9 @@ const style = StyleSheet.create({
   },
 });
 
-function Choise({ children }) {
+function Choise({ children, quizItemId, answer }) {
   const onPressButton = () => {
-    //console.warn(children);
+    answer(quizItemId, children);
   };
 
   return (
@@ -29,4 +30,8 @@ Choise.propTypes = {
   children: choiceType.isRequired,
 };
 
-export default Choise;
+const mapDispatchToProps = dispatch => ({
+  answer: (quizItemId, choice) => dispatch({ type: 'ANSWER', quizItemId, choice }),
+});
+
+export default connect(null, mapDispatchToProps)(Choise);
