@@ -1,4 +1,4 @@
-package com.few-hundred;
+package com.fewhundred;
 
 import com.facebook.react.ReactActivity;
 
