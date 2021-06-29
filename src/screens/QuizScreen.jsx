@@ -4,9 +4,7 @@ import {
 } from 'native-base';
 import { SafeAreaView } from 'react-native';
 
-
 import rq from 'ruby-questions';
-
 
 import QuizItem from './QuizItem';
 import Next from './QuizItem/components/Next';
@@ -17,14 +15,14 @@ import Question from './QuizItem/components/Question';
 const getQuizItem = (id) => {
   // const item = rq.ruby[Math.floor(Math.random() * rq.ruby.length)];
   return Object.assign(rq.ruby[id], { id: id });
-}
+};
 
 const questionText = (id) => {
   quizItem = getQuizItem(id);
   console.log('>>>', id, quizItem.question)
   return quizItem.question
 
-}
+};
 
 const QuizScreen = (props) => (
   <Container>
@@ -45,6 +43,6 @@ const mapStateToProps = state => {
   return {
     current: state.current
   }
-}
+};
 
 export default connect(mapStateToProps, null)(QuizScreen);

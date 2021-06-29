@@ -6,17 +6,23 @@
  * @flow
  */
 
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 import MainScreen from '../../screens/MainScreen';
 import QuizScreen from '../../screens/QuizScreen';
 
-const AppNavigator = createStackNavigator({
-  Home: MainScreen,
-  Quiz: QuizScreen,
-},
-{
-  initialRouteName: 'Home',
-});
+const Stack = createStackNavigator();
 
-export default createAppContainer(AppNavigator);
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={MainScreen} />
+        <Stack.Screen name="Quiz" component={QuizScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
