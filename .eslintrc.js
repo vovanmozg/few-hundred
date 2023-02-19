@@ -24,10 +24,19 @@ module.exports = {
     },
   },
   rules: {
-    'import/prefer-default-export': 'off',
-    'react/jsx-filename-extension': 'off',
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
+    '@typescript-eslint/member-delimiter-style': [
+      'warn',
+      {
+        multiline: {
+          delimiter: 'semi',
+          requireLast: true,
+        },
+        singleline: {
+          delimiter: 'semi',
+          requireLast: false,
+        },
+      },
+    ],
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -36,6 +45,15 @@ module.exports = {
         jsx: 'never',
         ts: 'never',
         tsx: 'never',
+      },
+    ],
+    'import/prefer-default-export': 'off',
+    'react/jsx-filename-extension': 'off',
+    'simple-import-sort/exports': 'error',
+    'simple-import-sort/imports': [
+      'error',
+      {
+        groups: [['^react$', '^@?\\w', '^app/']],
       },
     ],
   },

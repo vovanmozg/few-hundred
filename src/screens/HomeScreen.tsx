@@ -1,9 +1,9 @@
+import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { Button, Center, Image } from 'native-base';
 import ruby from 'app/assets/img/ruby.png';
 import type { RootStackParamList } from 'app/modules/app/AppWithNavigation';
-import { Button, Center, Image } from 'native-base';
-import React from 'react';
 
 export function HomeScreen() {
   const navigation =

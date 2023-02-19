@@ -1,5 +1,5 @@
 {
-  "name": "FewHundred",
+  "name": "few_hundred",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -24,7 +24,7 @@
     "redux-logger": "^3.0.6",
     "ruby-questions": "^0.2.0",
     "tslint": "^6.1.3",
-    "yarn": "^1.22.19"
+    "zustand": "^4.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
