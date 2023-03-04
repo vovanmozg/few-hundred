@@ -7631,10 +7631,10 @@ rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
-ruby-questions@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.npmjs.org/ruby-questions/-/ruby-questions-0.2.0.tgz"
-  integrity sha512-WY+ogqNwoifKNLo4CG5K3leT/INblf9n+kK7A9RLbDk724VbVo6bczvKn7m+8AssgHMo/0QsFnzwsyP6HIBmpQ==
+ruby-questions@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/ruby-questions/-/ruby-questions-0.5.0.tgz#c78f0a9faa99d169c8beccaebda989f5a400efd9"
+  integrity sha512-rwXduJDISZIXbcWhDkCo+JW+reuLEORwpVWEv+Pgi0F6DraNmiXU1ib6XUsL10nCCIrdsIjEnz3CpgFqpzHuJw==
 
 run-parallel@^1.1.9:
   version "1.2.0"
