@@ -1,11 +1,12 @@
-import React from 'react';
-import { Center } from 'native-base';
+import React, { useEffect } from 'react';
+import { Box } from 'native-base';
+import { DEBUG } from 'app/contants';
 import { Quiz } from 'app/screens/QuizScreen/components/Quiz';
 
 export function QuizScreen() {
   return (
-    <Center h="100%" w="100%" alignSelf="center">
+    <Box bg="white" p="1" h="100%" w="100%" alignSelf="center">
       <Quiz />
-    </Center>
+    </Box>
   );
 }

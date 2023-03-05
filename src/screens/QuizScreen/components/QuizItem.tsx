@@ -1,7 +1,4 @@
 import * as React from 'react';
-import { Card, CardItem } from 'native-base';
-import rq from 'ruby-questions';
-import { TQuizState, useStore } from 'app/store/quizState';
 import { TQuizItem } from 'app/types/tQuizItem';
 
 import { Choices } from './Choices';

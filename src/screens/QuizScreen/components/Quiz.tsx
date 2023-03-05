@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { Center } from 'native-base';
+import { useEffect, useState } from 'react';
+import { Box } from 'native-base';
 import rq from 'ruby-questions';
+import { DEBUG } from 'app/contants';
 import { TQuizState, useStore } from 'app/store/quizState';
 import {
-  TImportedChoice,
+  TImportedChoices,
   TImportedRubyQueistion,
 } from 'app/types/tImportedQubyQuestions';
 import { TChoice, TQuizItem } from 'app/types/tQuizItem';
@@ -20,7 +22,7 @@ import { QuizItem } from './QuizItem';
 //   };
 // }
 
-function transformChoices(choices: TImportedChoice): TChoice[] {
+function transformChoices(choices: TImportedChoices): TChoice[] {
   const entries = Object.entries(choices);
   // return entries.map(transformChoice);
   return entries.map(([index, value]) => ({ index, value }));
@@ -59,21 +61,35 @@ function transformRubyQuestions(
 // };
 
 export function Quiz() {
-  const cart = useStore(state => state.cart);
   const currentQuizItem = useStore((state: TQuizState) => state.current);
 
-  console.log(cart);
-  const shuffledArray = transformRubyQuestions(rq.ruby).sort(
-    () => 0.5 - Math.random(),
-  );
+  const [shuffledArray, setSuffledArray] = useState<TQuizItem[]>([]);
+  useEffect(() => {
+    console.log('Quiz useEffect');
+    setSuffledArray(
+      transformRubyQuestions(rq.ruby).sort(() => 0.5 - Math.random()),
+    );
+  }, []);
 
-  const items = shuffledArray.slice(0, 3);
+  if (shuffledArray.length === 0) {
+    return null;
+  }
 
+  const items = shuffledArray.slice(0, 10);
+
+  console.log('Quiz:', currentQuizItem, items[currentQuizItem]);
+  const bg = DEBUG ? 'secondary.300' : null;
   return (
-    <Center>
-      <Question text={items[currentQuizItem].question} />
-      <QuizItem quizItem={items[currentQuizItem]} />
-      <Next />
-    </Center>
+    <Box bg={bg} p="1" h="100%" display="flex" flexDirection="column">
+      <Box mb="10">
+        <Question text={items[currentQuizItem].question} />
+      </Box>
+      <Box>
+        <QuizItem quizItem={items[currentQuizItem]} />
+      </Box>
+      <Box style={{ position: 'absolute', bottom: 0, right: 0 }}>
+        <Next />
+      </Box>
+    </Box>
   );
 }

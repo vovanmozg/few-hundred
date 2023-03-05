@@ -5,8 +5,6 @@ export type TChoice = {
   value: string;
 };
 
-// type TTag = 'beginner-level' | 'intermediate-level' | 'advanced-level';
-
-export type TQuizItem = TImportedRubyQueistion & {
+export type TQuizItem = Omit<TImportedRubyQueistion, 'choices'> & {
   choices: TChoice[];
 };
