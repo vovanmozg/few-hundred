@@ -1,14 +1,8 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
 import { Box } from 'native-base';
-import rq from 'ruby-questions';
-import { DEBUG } from 'app/contants';
-import { TQuizState, useStore } from 'app/store/quizState';
-import {
-  TImportedChoices,
-  TImportedRubyQueistion,
-} from 'app/types/tImportedQubyQuestions';
-import { TChoice, TQuizItem } from 'app/types/tQuizItem';
+import { bg } from 'app/debug';
+import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
+import { useStartQuiz } from 'app/screens/QuizScreen/hooks/useStartQuiz';
 
 import { Next } from './Next';
 import { Question } from './Question';
@@ -21,31 +15,6 @@ import { QuizItem } from './QuizItem';
 //     value,
 //   };
 // }
-
-function transformChoices(choices: TImportedChoices): TChoice[] {
-  const entries = Object.entries(choices);
-  // return entries.map(transformChoice);
-  return entries.map(([index, value]) => ({ index, value }));
-}
-
-function transformRubyQuestion(
-  rubyQuestion: TImportedRubyQueistion,
-): TQuizItem {
-  return {
-    ...rubyQuestion,
-    choices: transformChoices(rubyQuestion.choices),
-  } as TQuizItem;
-}
-
-function transformRubyQuestions(
-  rubyQuestions: TImportedRubyQueistion[],
-): TQuizItem[] {
-  return rubyQuestions.map(transformRubyQuestion);
-
-  // const mapper = (choiceIndex) => {
-  //   return { index: choiceIndex, value: choices[choiceIndex] };
-  // };
-}
 
 // const getQuizItem = item => {
 //   return item;
@@ -61,26 +30,20 @@ function transformRubyQuestions(
 // };
 
 export function Quiz() {
-  const currentQuizItem = useStore((state: TQuizState) => state.current);
+  const currentQuizItem = useCurrentQuizItem();
+  const items = useStartQuiz();
 
-  const [shuffledArray, setSuffledArray] = useState<TQuizItem[]>([]);
-  useEffect(() => {
-    console.log('Quiz useEffect');
-    setSuffledArray(
-      transformRubyQuestions(rq.ruby).sort(() => 0.5 - Math.random()),
-    );
-  }, []);
-
-  if (shuffledArray.length === 0) {
+  if (!items) {
     return null;
   }
 
-  const items = shuffledArray.slice(0, 10);
-
-  console.log('Quiz:', currentQuizItem, items[currentQuizItem]);
-  const bg = DEBUG ? 'secondary.300' : null;
   return (
-    <Box bg={bg} p="1" h="100%" display="flex" flexDirection="column">
+    <Box
+      bg={bg('secondary.300')}
+      p="1"
+      h="100%"
+      display="flex"
+      flexDirection="column">
       <Box mb="10">
         <Question text={items[currentQuizItem].question} />
       </Box>

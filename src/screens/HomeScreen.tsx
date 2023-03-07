@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Button, Center, Image } from 'native-base';
 import ruby from 'app/assets/img/ruby.png';
-import type { RootStackParamList } from 'app/modules/app/AppWithNavigation';
+import { RootStackParamList } from 'app/types/app';
 
 export function HomeScreen() {
   const navigation =

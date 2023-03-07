@@ -9,17 +9,23 @@ type TAnswer = {
 type TSelectAnswer = { choice: TChoice; quizItem: TQuizItem };
 
 export type TQuizState = {
-  quizItems: TQuizItem[];
   answers: { [key: string]: TAnswer };
-  selectAnswer: (params: TSelectAnswer) => void;
-  nextQuizItem: () => void;
   current: number;
+  quizItems: TQuizItem[] | null;
+  quizStatus: 'notStarted' | 'inProgress' | 'finished';
+  nextQuizItem: () => void;
+  selectAnswer: (params: TSelectAnswer) => void;
+  setQuizItems: (quizItems: TQuizItem[]) => void;
 };
 
 export const useStore = create<TQuizState>(set => ({
   current: 0,
-  quizItems: [],
+  quizItems: null,
+  quizStatus: 'notStarted',
   answers: {},
+  setQuizItems: (quizItems: TQuizItem[]) => {
+    set(() => ({ quizItems, quizStatus: 'inProgress', current: 0 }));
+  },
   selectAnswer: (params: TSelectAnswer) => {
     const { choice, quizItem } = params;
     set((state: TQuizState) => {
@@ -34,7 +40,12 @@ export const useStore = create<TQuizState>(set => ({
   },
   nextQuizItem: () => {
     set(state => {
-      return { current: state.current + 1 };
+      const newCurrent = state.current + 1;
+      if (state.quizItems && state.quizItems[newCurrent]) {
+        return { current: state.current + 1 };
+      } else {
+        return { quizStatus: 'finished' };
+      }
     });
   },
 }));

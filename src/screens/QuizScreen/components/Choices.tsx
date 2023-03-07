@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Box, Radio } from 'native-base';
-import { DEBUG } from 'app/contants';
-import { TQuizState, useStore } from 'app/store/quizState';
+import { bg } from 'app/debug';
 import type { TChoice, TQuizItem } from 'app/types/tQuizItem';
 
 import { Choice } from './Choice';
@@ -23,9 +22,8 @@ export function Choices({ quizItem }: TProps) {
     setChoices(c.sort(randSort));
   }, [quizItem.choices]);
 
-  const bg = DEBUG ? 'blue.400' : null;
   return (
-    <Box bg={bg}>
+    <Box bg={bg('blue.400')}>
       <Radio.Group
         name="myRadioGroup"
         accessibilityLabel="favorite number"

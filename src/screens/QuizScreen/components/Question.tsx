@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Box } from 'native-base';
 import { useWindowDimensions } from 'react-native';
 import HTML from 'react-native-render-html';
-import { DEBUG } from 'app/contants';
+import { bg } from 'app/debug';
 
 type TProps = { text: string };
 
@@ -54,9 +54,8 @@ function formatHtml(html: string): string {
 }
 export function Question({ text }: TProps) {
   const { width } = useWindowDimensions();
-  const bg = DEBUG ? 'blue.400' : null;
   return (
-    <Box bg={bg} p="2">
+    <Box bg={bg('blue.400')} p="2">
       <HTML
         source={{ html: formatHtml(text) }}
         classesStyles={classesStyles}
