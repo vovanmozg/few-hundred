@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import rq from 'ruby-questions';
 import { TQuizState, useStore } from 'app/store/quizState';
 import {
@@ -26,33 +25,15 @@ function transformRubyQuestions(
   rubyQuestions: TImportedRubyQueistion[],
 ): TQuizItem[] {
   return rubyQuestions.map(transformRubyQuestion);
-
-  // const mapper = (choiceIndex) => {
-  //   return { index: choiceIndex, value: choices[choiceIndex] };
-  // };
 }
 
-export function useStartQuiz() {
-  // const currentQuizItem = useStore((state: TQuizState) => state.current);
-  // const setQuizItems = useStore((state: TQuizState) => state.setQuizItems);
-  // const quizItems = useStore((state: TQuizState) => state.quizItems);
-  const [quizItems, setQuizItems] = useStore((state: TQuizState) => [
-    state.quizItems,
-    state.setQuizItems,
-  ]);
-  // const [shuffledArray, setSuffledArray] = useState<TQuizItem[]>([]);
-  useEffect(() => {
+export function useStartQuiz(): () => void {
+  const setQuizItems = useStore((state: TQuizState) => state.setQuizItems);
+
+  return () =>
     setQuizItems(
       transformRubyQuestions(rq.ruby)
         .sort(() => 0.5 - Math.random())
         .slice(0, 3),
     );
-  }, []);
-
-  return quizItems;
-  // if (shuffledArray.length === 0) {
-  //   return null;
-  // }
-  //
-  // return shuffledArray.slice(0, 3);
 }

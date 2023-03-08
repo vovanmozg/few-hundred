@@ -1,37 +1,18 @@
 import * as React from 'react';
 import { Box } from 'native-base';
+import { Debug } from 'app/components/Debug';
 import { bg } from 'app/debug';
 import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
-import { useStartQuiz } from 'app/screens/QuizScreen/hooks/useStartQuiz';
+import { TQuizState, useStore } from 'app/store/quizState';
 
 import { Next } from './Next';
 import { Question } from './Question';
 import { QuizItem } from './QuizItem';
 
-// function transformChoice(choice: TImportedChoice): TChoice {
-//   const [index, value] = choice;
-//   return {
-//     index,
-//     value,
-//   };
-// }
-
-// const getQuizItem = item => {
-//   return item;
-//   // const item = rq.ruby[Math.floor(Math.random() * rq.ruby.length)];
-//   console.log(id);
-//
-//   return Object.assign(rq.ruby[id], { id });
-// };
-
-// const questionText = id => {
-//   const quizItem = getQuizItem(id);
-//   return quizItem.question;
-// };
-
 export function Quiz() {
   const currentQuizItem = useCurrentQuizItem();
-  const items = useStartQuiz();
+
+  const items = useStore((state: TQuizState) => state.quizItems);
 
   if (!items) {
     return null;
@@ -50,6 +31,7 @@ export function Quiz() {
       <Box>
         <QuizItem quizItem={items[currentQuizItem]} />
       </Box>
+      <Debug />
       <Box style={{ position: 'absolute', bottom: 0, right: 0 }}>
         <Next />
       </Box>

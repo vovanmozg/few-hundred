@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Box } from 'native-base';
 import { Quiz } from 'app/screens/QuizScreen/components/Quiz';
 
