@@ -1,16 +1,24 @@
-import React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import React, { useEffect } from 'react';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Button, Center, Image } from 'native-base';
 import ruby from 'app/assets/img/ruby.png';
 import { Debug } from 'app/components/Debug';
 import { useStartQuiz } from 'app/screens/QuizScreen/hooks/useStartQuiz';
+import { TQuizState, useStore } from 'app/store/quizState';
 import { RootStackParamList } from 'app/types/app';
 
-export function HomeScreen() {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+
+export function HomeScreen({ navigation }: Props) {
+  // const navigation =
+  //   useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const startQuiz = useStartQuiz();
+  const resetQuiz = useStore((state: TQuizState) => state.resetQuiz);
+
+  // Reset quiz when screen loaded
+  useEffect(() => {
+    return navigation.addListener('focus', () => resetQuiz());
+  }, [navigation]);
 
   const onPress = () => {
     startQuiz();

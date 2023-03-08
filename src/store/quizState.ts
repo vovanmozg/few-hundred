@@ -14,6 +14,7 @@ export type TQuizState = {
   quizItems: TQuizItem[] | null;
   quizStatus: 'notStarted' | 'inProgress' | 'finished';
   nextQuizItem: () => void;
+  resetQuiz: () => void;
   selectAnswer: (params: TSelectAnswer) => void;
   setQuizItems: (quizItems: TQuizItem[]) => void;
 };
@@ -23,6 +24,9 @@ export const useStore = create<TQuizState>(set => ({
   quizItems: null,
   quizStatus: 'notStarted',
   answers: {},
+  resetQuiz: () => {
+    set(() => ({ quizItems: null, quizStatus: 'notStarted', current: 0 }));
+  },
   setQuizItems: (quizItems: TQuizItem[]) => {
     set(() => ({ quizItems, quizStatus: 'inProgress', current: 0 }));
   },
