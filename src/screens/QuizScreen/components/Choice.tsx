@@ -13,23 +13,29 @@ export function Choice({ answer, quizItem }: TProps) {
   const answers = useStore((state: TQuizState) => state.answers);
 
   const onSelectAnswer = nextValue => {
-    // console.log(answers[quizItem.question]);
-    // setValue(nextValue);
     selectAnswer({ choice: answer, quizItem });
     // selectAnswer({ choice: answer, quizItem });
     // onAnswer(quizItemId, children);
-    console.log('-------------');
-    console.log(
-      'answers[quizItem.question]?.choice',
-      answers[quizItem.question]?.choice,
-    );
-    console.log('answer', answer);
+    // console.log('-------------');
+    // console.log(
+    //   'answers[quizItem.question]?.choice',
+    //   answers[quizItem.question]?.choice,
+    // );
+    // console.log('answer', answer);
   };
 
   const bg =
     answers[quizItem.question]?.choice.index === answer.index
-      ? 'primary.100'
+      ? answer.index === '1'
+        ? 'emerald.300'
+        : 'rose.300'
       : 'muted.50';
+  console.log(
+    'answer',
+    bg,
+    answers[quizItem.question]?.choice.index,
+    answer.index,
+  );
   return (
     <Pressable py="1" onPress={onSelectAnswer} width="100%">
       <Box p="2" bg={bg} borderRadius="5" width="100%">
