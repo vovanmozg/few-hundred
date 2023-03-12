@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Box } from 'native-base';
-import { Debug } from 'app/components/Debug';
+import { Box, ScrollView } from 'native-base';
+// import { Debug } from 'app/components/Debug';
 import { bg } from 'app/debug';
 import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
 import { TQuizState, useStore } from 'app/store/quizState';
@@ -25,14 +25,23 @@ export function Quiz() {
       h="100%"
       display="flex"
       flexDirection="column">
-      <Box mb="10">
-        <Question text={items[currentQuizItem].question} />
+      <Box h="90%">
+        <ScrollView>
+          <Box mb="10">
+            <Question text={items[currentQuizItem].question} />
+          </Box>
+          <Box>
+            <QuizItem quizItem={items[currentQuizItem]} />
+          </Box>
+        </ScrollView>
       </Box>
-      <Box>
-        <QuizItem quizItem={items[currentQuizItem]} />
-      </Box>
-      <Debug />
-      <Box style={{ position: 'absolute', bottom: 0, right: 0 }}>
+
+      {/* <Debug /> */}
+      <Box
+        w="100%"
+        bg="white"
+        pt="2"
+        style={{ position: 'absolute', bottom: 0, right: 0 }}>
         <Next />
       </Box>
     </Box>

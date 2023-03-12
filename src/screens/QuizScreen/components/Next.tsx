@@ -13,8 +13,10 @@ export function Next() {
   }
 
   return (
-    <Box alignItems="center">
-      <Button onPress={nextQuizItem}>Next</Button>
+    <Box alignItems="flex-end">
+      <Button w="50%" onPress={nextQuizItem}>
+        Next
+      </Button>
     </Box>
   );
 }
