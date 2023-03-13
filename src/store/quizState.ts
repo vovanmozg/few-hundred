@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { TChoice, TQuizItem } from 'app/types/tQuizItem';
+import { TChoice, TQuizItem } from 'app/types/TQuizItem';
 
 type TAnswer = {
   choice: TChoice;

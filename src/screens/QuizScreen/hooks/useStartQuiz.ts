@@ -4,7 +4,7 @@ import {
   TImportedChoices,
   TImportedRubyQueistion,
 } from 'app/types/tImportedQubyQuestions';
-import { TChoice, TQuizItem } from 'app/types/tQuizItem';
+import { TChoice, TQuizItem } from 'app/types/TQuizItem';
 
 function transformChoices(choices: TImportedChoices): TChoice[] {
   const entries = Object.entries(choices);

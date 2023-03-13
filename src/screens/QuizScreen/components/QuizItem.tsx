@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box } from 'native-base';
 import { Explanation } from 'app/screens/QuizScreen/components/Explanation';
-import { TQuizItem } from 'app/types/tQuizItem';
+import { TQuizItem } from 'app/types/TQuizItem';
 
 import { Choices } from './Choices';
 

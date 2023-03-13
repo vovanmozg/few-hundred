@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Box, Button, Pressable, Text } from 'native-base';
+import { Box, Pressable, Text } from 'native-base';
 import type { TQuizState } from 'app/store/quizState';
 import { useStore } from 'app/store/quizState';
-import type { TChoice, TQuizItem } from 'app/types/tQuizItem';
+import type { TChoice, TQuizItem } from 'app/types/TQuizItem';
 
 type TProps = {
   quizItem: TQuizItem;
@@ -12,7 +12,7 @@ export function Choice({ answer, quizItem }: TProps) {
   const selectAnswer = useStore((state: TQuizState) => state.selectAnswer);
   const answers = useStore((state: TQuizState) => state.answers);
 
-  const onSelectAnswer = nextValue => {
+  const onSelectAnswer = _ => {
     selectAnswer({ choice: answer, quizItem });
     // selectAnswer({ choice: answer, quizItem });
     // onAnswer(quizItemId, children);

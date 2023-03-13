@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Box, Radio } from 'native-base';
 import { bg } from 'app/debug';
-import type { TChoice, TQuizItem } from 'app/types/tQuizItem';
+import type { TChoice, TQuizItem } from 'app/types/TQuizItem';
 
 import { Choice } from './Choice';
 

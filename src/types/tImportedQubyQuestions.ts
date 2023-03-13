@@ -6,9 +6,10 @@ export type TImportedChoices = {
 export type TTag = 'beginner-level' | 'intermediate-level' | 'advanced-level';
 
 export type TImportedRubyQueistion = {
-  question: string;
-  type: 'mc' | 'ma';
-  choices: TImportedChoices;
   answer: 'string';
+  choices: TImportedChoices;
+  explanation: 'string';
+  question: string;
   tags: TTag[];
+  type: 'mc' | 'ma';
 };
