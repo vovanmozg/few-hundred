@@ -3,7 +3,7 @@ import { Box } from 'native-base';
 import { TQuizState, useStore } from 'app/store/quizState';
 
 export function Debug() {
-  const state = useStore((state: TQuizState) => state);
+  const state = useStore((quizState: TQuizState) => quizState);
   console.log(state);
   return (
     <Box width="100%">

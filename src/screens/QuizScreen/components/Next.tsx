@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Button, Text } from 'native-base';
+import { Box, Button } from 'native-base';
 import { useNextQuizItem } from 'app/screens/QuizScreen/hooks/useNextQuizItem';
 
 // const buttonStyle = { alignSelf: 'flex-end', position: 'absolute', bottom: 35 };

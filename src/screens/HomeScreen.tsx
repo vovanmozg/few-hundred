@@ -18,7 +18,7 @@ export function HomeScreen({ navigation }: Props) {
   // Reset quiz when screen loaded
   useEffect(() => {
     return navigation.addListener('focus', () => resetQuiz());
-  }, [navigation]);
+  }, [navigation, resetQuiz]);
 
   const onPress = () => {
     startQuiz();

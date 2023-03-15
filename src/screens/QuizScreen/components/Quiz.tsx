@@ -6,7 +6,6 @@ import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizI
 import { TQuizState, useStore } from 'app/store/quizState';
 
 import { Next } from './Next';
-import { Question } from './Question';
 import { QuizItem } from './QuizItem';
 
 export function Quiz() {
@@ -34,11 +33,7 @@ export function Quiz() {
       </Box>
 
       {/* <Debug /> */}
-      <Box
-        w="100%"
-        bg="white"
-        pt="2"
-        style={{ position: 'absolute', bottom: 0, right: 0 }}>
+      <Box w="100%" bg="white" pt="2" position="absolute" bottom="0" right="0">
         <Next />
       </Box>
     </Box>

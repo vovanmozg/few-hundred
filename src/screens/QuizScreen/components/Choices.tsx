@@ -14,7 +14,6 @@ const randSort = () => Math.random() - 0.5;
 
 export function Choices({ quizItem }: TProps) {
   const [choices, setChoices] = useState<TChoice[]>([]);
-  const [value, setValue] = useState(null); // value={value}
 
   useEffect(() => {
     console.log('useEffect');
