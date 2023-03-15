@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { TChoice, TQuizItem } from 'app/types/TQuizItem';
 
-type TAnswer = {
+export type TAnswer = {
   choice: TChoice;
   quizItem: TQuizItem;
 };
@@ -39,6 +39,7 @@ export const useStore = create<TQuizState>(set => ({
         quizItem,
       };
       answers[quizItem.question] = answer;
+
       return { answers };
     });
   },

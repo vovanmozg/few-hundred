@@ -9,6 +9,7 @@ type TProps = { text: string };
 const classesStyles = {
   container: {
     fontSize: '1.2em',
+    color: '#000000',
   },
   code: {
     backgroundColor: '#F0F0F0',

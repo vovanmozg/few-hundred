@@ -31,7 +31,7 @@ export function Choices({ quizItem }: TProps) {
       >
         {choices.map((choice: TChoice) => {
           return (
-            <Choice key={choice.index} quizItem={quizItem} answer={choice} />
+            <Choice key={choice.index} quizItem={quizItem} choice={choice} />
           );
         })}
       </Radio.Group>

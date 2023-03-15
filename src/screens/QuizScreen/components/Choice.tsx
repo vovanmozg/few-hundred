@@ -1,45 +1,42 @@
 import * as React from 'react';
 import { Box, Pressable, Text } from 'native-base';
-import type { TQuizState } from 'app/store/quizState';
+import type { TAnswer, TQuizState } from 'app/store/quizState';
 import { useStore } from 'app/store/quizState';
 import type { TChoice, TQuizItem } from 'app/types/TQuizItem';
 
+function choiceColor(choice: TChoice, answer?: TAnswer) {
+  const bgColors = {
+    normal: 'muted.50',
+    correct: 'emerald.300',
+    incorrect: 'rose.300',
+  };
+
+  // console.log('answer', answer);
+  if (answer?.choice?.index !== choice.index) {
+    return bgColors.normal;
+  }
+
+  return choice.index === '1' ? bgColors.correct : bgColors.incorrect;
+}
+
 type TProps = {
   quizItem: TQuizItem;
-  answer: TChoice;
+  choice: TChoice;
 };
-export function Choice({ answer, quizItem }: TProps) {
+export function Choice({ choice, quizItem }: TProps) {
   const selectAnswer = useStore((state: TQuizState) => state.selectAnswer);
   const answers = useStore((state: TQuizState) => state.answers);
 
-  const onSelectAnswer = _ => {
-    selectAnswer({ choice: answer, quizItem });
-    // selectAnswer({ choice: answer, quizItem });
-    // onAnswer(quizItemId, children);
-    // console.log('-------------');
-    // console.log(
-    //   'answers[quizItem.question]?.choice',
-    //   answers[quizItem.question]?.choice,
-    // );
-    // console.log('answer', answer);
+  const onSelectAnswer = () => {
+    selectAnswer({ choice, quizItem });
   };
 
-  const bg =
-    answers[quizItem.question]?.choice.index === answer.index
-      ? answer.index === '1'
-        ? 'emerald.300'
-        : 'rose.300'
-      : 'muted.50';
-  console.log(
-    'answer',
-    bg,
-    answers[quizItem.question]?.choice.index,
-    answer.index,
-  );
+  const bg = choiceColor(choice, answers[quizItem.question]);
+
   return (
     <Pressable py="1" onPress={onSelectAnswer} width="100%">
       <Box p="2" bg={bg} borderRadius="5" width="100%">
-        <Text>{answer.value}</Text>
+        <Text>{choice.value}</Text>
       </Box>
     </Pressable>
   );

@@ -65,6 +65,7 @@ function formatHtml(html: string): string {
 }
 export function Explanation({ text }: TProps) {
   const { width } = useWindowDimensions();
+
   return (
     <Box bg={bg('blue.400')} p="2">
       <HTML

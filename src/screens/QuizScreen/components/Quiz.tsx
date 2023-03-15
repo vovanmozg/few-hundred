@@ -27,9 +27,6 @@ export function Quiz() {
       flexDirection="column">
       <Box h="90%">
         <ScrollView>
-          <Box mb="10">
-            <Question text={items[currentQuizItem].question} />
-          </Box>
           <Box>
             <QuizItem quizItem={items[currentQuizItem]} />
           </Box>
