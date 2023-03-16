@@ -44,12 +44,15 @@ function replaceCode(html: string): string {
   return formattedHtml;
 }
 
-export function formatHtml(html: string): string {
-  let formattedHtml = replaceCode(html);
+function replaceGraveAccent(str: string): string {
+  const regex = /`(.*?)`/g;
+  return str.replace(regex, '<span class="inlineCode"><code>$1</code></span>');
+}
 
-  formattedHtml = formattedHtml
+export function formatHtml(html: string): string {
+  const formattedHtml = replaceGraveAccent(replaceCode(html))
     .split('\n')
-    .map(text => `<p>${text}</p>`)
+    .map((text: string) => `<p>${text}</p>`)
     .join('');
 
   return `<div class="container">${formattedHtml}</div>`;
