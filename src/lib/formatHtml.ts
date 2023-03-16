@@ -1,4 +1,20 @@
-export function formatHtml(html: string): string {
+function getIndicesOf(searchStr: string, str: string) {
+  const searchStrLen = searchStr.length;
+  if (searchStrLen === 0) {
+    return [];
+  }
+  let startIndex = 0,
+    index;
+  const indices = [];
+
+  while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+    indices.push(index);
+    startIndex = index + searchStrLen;
+  }
+  return indices;
+}
+
+function replaceCode(html: string): string {
   const count = (html.match('<code>') || []).length;
 
   let formattedHtml = '';
@@ -21,14 +37,20 @@ export function formatHtml(html: string): string {
     }
   }
 
+  if (count > 1) {
+    throw Error;
+  }
+
+  return formattedHtml;
+}
+
+export function formatHtml(html: string): string {
+  let formattedHtml = replaceCode(html);
+
   formattedHtml = formattedHtml
     .split('\n')
     .map(text => `<p>${text}</p>`)
     .join('');
-
-  if (count > 1) {
-    throw Error;
-  }
 
   return `<div class="container">${formattedHtml}</div>`;
 }
