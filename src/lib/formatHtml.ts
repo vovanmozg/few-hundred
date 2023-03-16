@@ -1,19 +1,3 @@
-function getIndicesOf(searchStr: string, str: string) {
-  const searchStrLen = searchStr.length;
-  if (searchStrLen === 0) {
-    return [];
-  }
-  let startIndex = 0,
-    index;
-  const indices = [];
-
-  while ((index = str.indexOf(searchStr, startIndex)) > -1) {
-    indices.push(index);
-    startIndex = index + searchStrLen;
-  }
-  return indices;
-}
-
 function replaceCode(html: string): string {
   const count = (html.match('<code>') || []).length;
 
