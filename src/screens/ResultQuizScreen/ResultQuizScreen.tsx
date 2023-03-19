@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { HeaderBackButton } from '@react-navigation/elements';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Button, Center, Text } from 'native-base';
+import { useCorrectAnswersCount } from 'app/screens/QuizScreen/hooks/useCorrectAnswersCount';
 import { useStartQuiz } from 'app/screens/QuizScreen/hooks/useStartQuiz';
 import { TQuizState, useStore } from 'app/store/quizState';
 import { RootStackParamList } from 'app/types/app';
@@ -31,11 +32,7 @@ export function ResultQuizScreen({ navigation }: Props) {
 
   const answersCount = Object.keys(answers).length;
 
-  const correctAnswers = Object.values(answers).filter(
-    answer => answer.choice.index === answer.quizItem.answer,
-  ).length;
-
-  // const incorrectAnswersCount = answers.length - correctAnswers.length;
+  const correctAnswers = useCorrectAnswersCount(answers);
 
   return (
     <Center bg="white" p="1" h="100%" w="100%" alignSelf="center">

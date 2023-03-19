@@ -6,10 +6,14 @@ export type TAnswer = {
   quizItem: TQuizItem;
 };
 
+export type TAnswers = {
+  [key: string]: TAnswer;
+};
+
 type TSelectAnswer = { choice: TChoice; quizItem: TQuizItem };
 
 export type TQuizState = {
-  answers: { [key: string]: TAnswer };
+  answers: TAnswers;
   current: number;
   quizItems: TQuizItem[] | null;
   quizStatus: 'notStarted' | 'inProgress' | 'finished';
