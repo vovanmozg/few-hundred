@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { HeaderBackButton } from '@react-navigation/elements';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Button, Center, Text } from 'native-base';
 import { useStartQuiz } from 'app/screens/QuizScreen/hooks/useStartQuiz';
@@ -10,6 +11,18 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 export function ResultQuizScreen({ navigation }: Props) {
   const answers = useStore((state: TQuizState) => state.answers);
   const startQuiz = useStartQuiz();
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => (
+        <HeaderBackButton
+          onPress={() => {
+            navigation.navigate('Home');
+          }}
+        />
+      ),
+    });
+  });
 
   const onPress = () => {
     startQuiz();
