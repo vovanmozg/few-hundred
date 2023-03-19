@@ -1,10 +1,11 @@
 import rq from 'ruby-questions';
-import { TQuizState, useStore } from 'app/store/quizState';
+import { useStore } from 'app/store/quizState';
 import {
   TImportedChoices,
   TImportedRubyQueistion,
 } from 'app/types/tImportedQubyQuestions';
 import { TChoice, TQuizItem } from 'app/types/TQuizItem';
+import type { TQuizState } from 'app/types/TQuizState';
 
 function transformChoices(choices: TImportedChoices): TChoice[] {
   const entries = Object.entries(choices);

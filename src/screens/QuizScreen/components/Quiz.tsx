@@ -2,7 +2,8 @@ import * as React from 'react';
 import { Box, ScrollView } from 'native-base';
 import { bg } from 'app/debug';
 import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
-import { TQuizState, useStore } from 'app/store/quizState';
+import { useStore } from 'app/store/quizState';
+import type { TQuizState } from 'app/types/TQuizState';
 
 import { Next } from './Next';
 import { QuizItem } from './QuizItem';

@@ -1,4 +1,5 @@
-import { TQuizState, useStore } from 'app/store/quizState';
+import { useStore } from 'app/store/quizState';
+import type { TQuizState } from 'app/types/TQuizState';
 
 function composeResult(number?: number, isAnswerSelected?: boolean) {
   return { number, isAnswerSelected };

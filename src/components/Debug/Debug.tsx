@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from 'native-base';
-import { TQuizState, useStore } from 'app/store/quizState';
+import { useStore } from 'app/store/quizState';
+import type { TQuizState } from 'app/types/TQuizState';
 
 export function Debug() {
   const state = useStore((quizState: TQuizState) => quizState);

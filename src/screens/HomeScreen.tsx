@@ -3,8 +3,9 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Button, Center, Image } from 'native-base';
 import ruby from 'app/assets/img/ruby.png';
 import { useStartQuiz } from 'app/screens/QuizScreen/hooks/useStartQuiz';
-import { TQuizState, useStore } from 'app/store/quizState';
+import { useStore } from 'app/store/quizState';
 import { RootStackParamList } from 'app/types/app';
+import type { TQuizState } from 'app/types/TQuizState';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 

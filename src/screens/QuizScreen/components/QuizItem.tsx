@@ -2,8 +2,9 @@ import * as React from 'react';
 import { Box } from 'native-base';
 import { Explanation } from 'app/screens/QuizScreen/components/Explanation';
 import { Question } from 'app/screens/QuizScreen/components/Question';
-import { TQuizState, useStore } from 'app/store/quizState';
-import { TQuizItem } from 'app/types/TQuizItem';
+import { useStore } from 'app/store/quizState';
+import type { TQuizItem } from 'app/types/TQuizItem';
+import type { TQuizState } from 'app/types/TQuizState';
 
 import { Choices } from './Choices';
 

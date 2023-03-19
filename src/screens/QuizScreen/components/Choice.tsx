@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Box, Pressable, Text } from 'native-base';
-import type { TAnswer, TQuizState } from 'app/store/quizState';
 import { useStore } from 'app/store/quizState';
 import type { TChoice, TQuizItem } from 'app/types/TQuizItem';
+import type { TAnswer, TQuizState } from 'app/types/TQuizState';
 
 function choiceColor(choice: TChoice, answer?: TAnswer) {
   const bgColors = {

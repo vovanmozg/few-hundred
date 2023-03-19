@@ -1,7 +1,8 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { TQuizState, useStore } from 'app/store/quizState';
+import { useStore } from 'app/store/quizState';
 import { RootStackParamList } from 'app/types/app';
+import type { TQuizState } from 'app/types/TQuizState';
 
 export function useNextQuizItem() {
   const [nextQuizItem, quizStatus] = useStore((state: TQuizState) => [

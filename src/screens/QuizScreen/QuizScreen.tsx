@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Box } from 'native-base';
 import { Quiz } from 'app/screens/QuizScreen/components/Quiz';
-import { TQuizState, useStore } from 'app/store/quizState';
+import { useStore } from 'app/store/quizState';
 import { RootStackParamList } from 'app/types/app';
+import type { TQuizState } from 'app/types/TQuizState';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 

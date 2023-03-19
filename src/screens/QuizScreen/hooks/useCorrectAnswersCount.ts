@@ -1,4 +1,4 @@
-import { TAnswers } from 'app/store/quizState';
+import type { TAnswers } from 'app/types/TQuizState';
 
 export function useCorrectAnswersCount(answers: TAnswers) {
   return Object.values(answers).filter(

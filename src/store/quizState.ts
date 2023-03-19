@@ -1,27 +1,6 @@
 import { create } from 'zustand';
-import { TChoice, TQuizItem } from 'app/types/TQuizItem';
-
-export type TAnswer = {
-  choice: TChoice;
-  quizItem: TQuizItem;
-};
-
-export type TAnswers = {
-  [key: string]: TAnswer;
-};
-
-type TSelectAnswer = { choice: TChoice; quizItem: TQuizItem };
-
-export type TQuizState = {
-  answers: TAnswers;
-  current: number;
-  quizItems: TQuizItem[] | null;
-  quizStatus: 'notStarted' | 'inProgress' | 'finished';
-  nextQuizItem: () => void;
-  resetQuiz: () => void;
-  selectAnswer: (params: TSelectAnswer) => void;
-  setQuizItems: (quizItems: TQuizItem[]) => void;
-};
+import { TQuizItem } from 'app/types/TQuizItem';
+import type { TQuizState, TSelectAnswer } from 'app/types/TQuizState';
 
 export const useStore = create<TQuizState>(set => ({
   current: 0,
