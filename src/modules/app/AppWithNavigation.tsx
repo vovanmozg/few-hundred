@@ -9,14 +9,32 @@ import { RootStackParamList } from 'app/types/app';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+const commonOptions = {
+  headerStyle: {
+    backgroundColor: '#e0f2fe',
+  },
+};
+
 export function AppWithNavigation() {
   return (
     <NativeBaseProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Quiz" component={QuizScreen} />
-          <Stack.Screen name="ResultQuiz" component={ResultQuizScreen} />
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={commonOptions}
+          />
+          <Stack.Screen
+            name="Quiz"
+            component={QuizScreen}
+            options={commonOptions}
+          />
+          <Stack.Screen
+            name="ResultQuiz"
+            component={ResultQuizScreen}
+            options={commonOptions}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
