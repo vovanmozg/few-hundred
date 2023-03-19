@@ -36,7 +36,7 @@ function replaceGraveAccent(str: string): string {
 // https://stackoverflow.com/questions/37684/how-to-replace-plain-urls-with-links
 function insertLinks(str: string): string {
   const replacePattern1 =
-    /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+    /(\b(https?|ftp):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/gim;
   return str.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>');
 }
 
