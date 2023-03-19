@@ -9,16 +9,20 @@ import type { TQuizState } from 'app/types/TQuizState';
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 export function QuizScreen({ navigation }: Props) {
-  const [answers, current] = useStore((state: TQuizState) => [
-    state.answers,
+  const [quizItems, current] = useStore((state: TQuizState) => [
+    state.quizItems,
     state.current,
   ]);
 
   useEffect(() => {
+    if (quizItems === null) {
+      return;
+    }
+
     navigation.setOptions({
-      title: `Question ${current + 1} / ${Object.keys(answers).length}`,
+      title: `Question ${current + 1} / ${Object.keys(quizItems).length}`,
     });
-  }, [current, answers, navigation]);
+  }, [current, quizItems, navigation]);
 
   return (
     <Box bg="white" p="1" h="100%" w="100%" alignSelf="center">
