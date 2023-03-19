@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Button, Center, Image } from 'native-base';
 import ruby from 'app/assets/img/ruby.png';
-import { Debug } from 'app/components/Debug';
 import { useStartQuiz } from 'app/screens/QuizScreen/hooks/useStartQuiz';
 import { TQuizState, useStore } from 'app/store/quizState';
 import { RootStackParamList } from 'app/types/app';
@@ -27,10 +26,9 @@ export function HomeScreen({ navigation }: Props) {
 
   return (
     <Center h="100%" w="100%" alignSelf="center">
-      <Image alt="123" mb="10" source={ruby} width={117} height={92} />
+      <Image mb="10" alt="" source={ruby} width={117} height={92} />
 
       <Button onPress={onPress}>Play</Button>
-      <Debug />
     </Center>
   );
 }
