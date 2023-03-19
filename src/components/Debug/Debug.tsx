@@ -5,7 +5,7 @@ import type { TQuizState } from 'app/types/TQuizState';
 
 export function Debug() {
   const state = useStore((quizState: TQuizState) => quizState);
-  console.log(state);
+
   return (
     <Box width="100%">
       <Box>quizStatus: {state.quizStatus}</Box>

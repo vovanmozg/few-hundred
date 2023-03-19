@@ -12,9 +12,7 @@ export function useNextQuizItem() {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-  console.log(quizStatus);
   if (quizStatus === 'finished') {
-    console.log('navigate.....');
     navigation.navigate('ResultQuiz');
     return;
   }

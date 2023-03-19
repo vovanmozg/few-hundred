@@ -16,18 +16,12 @@ export function Choices({ quizItem }: TProps) {
   const [choices, setChoices] = useState<TChoice[]>([]);
 
   useEffect(() => {
-    console.log('useEffect');
-    const c = quizItem.choices;
-    setChoices(c.sort(randSort));
+    setChoices(quizItem.choices.sort(randSort));
   }, [quizItem.choices]);
 
   return (
     <Box bg={bg('blue.400')}>
-      <Radio.Group
-        name="myRadioGroup"
-        accessibilityLabel="favorite number"
-        // onChange={onSelectAnswer}
-      >
+      <Radio.Group name="myRadioGroup" accessibilityLabel="favorite number">
         {choices.map((choice: TChoice) => {
           return (
             <Choice key={choice.index} quizItem={quizItem} choice={choice} />

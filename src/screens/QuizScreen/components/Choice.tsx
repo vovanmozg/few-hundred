@@ -11,7 +11,6 @@ function choiceColor(choice: TChoice, answer?: TAnswer) {
     incorrect: 'rose.300',
   };
 
-  // console.log('answer', answer);
   if (answer?.choice?.index !== choice.index) {
     return bgColors.normal;
   }
