@@ -10,8 +10,6 @@ import type { TQuizState } from 'app/types/TQuizState';
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 export function HomeScreen({ navigation }: Props) {
-  // const navigation =
-  //   useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const startQuiz = useStartQuiz();
   const resetQuiz = useStore((state: TQuizState) => state.resetQuiz);
 

@@ -7,9 +7,11 @@ import {
 import { TChoice, TQuizItem } from 'app/types/TQuizItem';
 import type { TQuizState } from 'app/types/TQuizState';
 
+const QUESTIONS_COUNT = 10;
+
 function transformChoices(choices: TImportedChoices): TChoice[] {
   const entries = Object.entries(choices);
-  // return entries.map(transformChoice);
+
   return entries.map(([index, value]) => ({ index, value }));
 }
 
@@ -35,6 +37,6 @@ export function useStartQuiz(): () => void {
     setQuizItems(
       transformRubyQuestions(rq.ruby)
         .sort(() => 0.5 - Math.random())
-        .slice(0, 3),
+        .slice(0, QUESTIONS_COUNT),
     );
 }
