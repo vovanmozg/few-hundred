@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const commonOptions = {
   headerStyle: {
-    backgroundColor: '#e0f2fe',
+    backgroundColor: '#e0f2fe', // info.100
   },
 };
 
