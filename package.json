@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
+    "tslint": "tslint src/**/*.ts{,x}",
     "start": "react-native start",
     "test": "jest"
   },
