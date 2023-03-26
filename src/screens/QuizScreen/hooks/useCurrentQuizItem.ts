@@ -1,8 +1,8 @@
 import { useStore } from 'app/store/quizState';
 import type { TQuizState } from 'app/types/TQuizState';
 
-function composeResult(number?: number, isAnswerSelected?: boolean) {
-  return { number, isAnswerSelected };
+function composeResult(current?: number, isAnswerSelected?: boolean) {
+  return { current, isAnswerSelected };
 }
 
 export function useCurrentQuizItem() {

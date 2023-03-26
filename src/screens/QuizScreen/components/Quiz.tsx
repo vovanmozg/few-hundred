@@ -9,11 +9,11 @@ import { Next } from './Next';
 import { QuizItem } from './QuizItem';
 
 export function Quiz() {
-  const { number } = useCurrentQuizItem();
+  const { current } = useCurrentQuizItem();
 
   const items = useStore((state: TQuizState) => state.quizItems);
 
-  if (!items || number === undefined) {
+  if (!items || current === undefined) {
     return null;
   }
 
@@ -27,7 +27,7 @@ export function Quiz() {
       <Box h="90%">
         <ScrollView>
           <Box>
-            <QuizItem quizItem={items[number]} />
+            <QuizItem quizItem={items[current]} />
           </Box>
         </ScrollView>
       </Box>
