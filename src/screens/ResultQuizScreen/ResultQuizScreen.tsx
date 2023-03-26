@@ -11,7 +11,7 @@ import type { TQuizState } from 'app/types/TQuizState';
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 export function ResultQuizScreen({ navigation }: Props) {
-  const answers = useStore((state: TQuizState) => state.answers);
+  const answers = useStore((state: TQuizState) => state.quizAnswers);
   const startQuiz = useStartQuiz();
 
   useEffect(() => {

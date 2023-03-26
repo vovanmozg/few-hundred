@@ -7,7 +7,7 @@ function composeResult(number?: number, isAnswerSelected?: boolean) {
 
 export function useCurrentQuizItem() {
   return useStore((state: TQuizState) => {
-    const { answers, quizItems, current } = state;
+    const { quizAnswers, quizItems, current } = state;
 
     if (!quizItems) {
       return composeResult();
@@ -19,7 +19,7 @@ export function useCurrentQuizItem() {
       return composeResult();
     }
 
-    const isAnswerSelected = !!answers[quizItem.question];
+    const isAnswerSelected = !!quizAnswers[quizItem.question];
     return composeResult(current, isAnswerSelected);
 
     //

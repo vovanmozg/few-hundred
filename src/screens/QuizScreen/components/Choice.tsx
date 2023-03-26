@@ -3,9 +3,9 @@ import { Box, Pressable, Text } from 'native-base';
 import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
 import { useStore } from 'app/store/quizState';
 import type { TChoice, TQuizItem } from 'app/types/TQuizItem';
-import type { TAnswer, TQuizState } from 'app/types/TQuizState';
+import type { TQuizAnswer, TQuizState } from 'app/types/TQuizState';
 
-function choiceColor(choice: TChoice, answer?: TAnswer) {
+function choiceColor(choice: TChoice, answer?: TQuizAnswer) {
   const bgColors = {
     normal: 'muted.50',
     correct: 'emerald.300',
@@ -25,7 +25,7 @@ type TProps = {
 };
 export function Choice({ choice, quizItem }: TProps) {
   const selectAnswer = useStore((state: TQuizState) => state.selectAnswer);
-  const answers = useStore((state: TQuizState) => state.answers);
+  const answers = useStore((state: TQuizState) => state.quizAnswers);
   const { isAnswerSelected } = useCurrentQuizItem();
 
   const onSelectAnswer = () => {

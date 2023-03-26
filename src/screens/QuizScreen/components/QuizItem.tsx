@@ -23,20 +23,8 @@ export function QuizItem({ quizItem }: TProps) {
   //   'Note that if you use the == operator instead of ===, the expression would return false because a range object is not equal to any of its elements.' +
   //   '\n' +
   //   '<a href="https://ruby-doc.org/core-2.7.1/Range.html#method-i-3D-3D-3D">https://ruby-doc.org/core-2.7.1/Range.html#method-i-3D-3D-3D</a>';
-  // text =
-  //   'The code will return an array containing the values of ' +
-  //   'the a property for each object in the original array.\n' +
-  //   'In this case, the original array is [{ a: 1 }, { a: 2 }], which ' +
-  //   'contains two objects with the property a. The map method is called ' +
-  //   'on this array and a lambda function (also known as a <em>stabby lambda' +
-  //   '</em> in Ruby) is passed as an argument.\n' +
-  //   'The lambda function takes a single parameter x, which represents each' +
-  //   ' object in the original array. The function returns the value of the ' +
-  //   'a property for each object.\n' +
-  //   'So, the output of the code will be the array [1, 2], which contains ' +
-  //   'the values of the a property for each object in the original array.';
 
-  const answers = useStore((state: TQuizState) => state.answers);
+  const answers = useStore((state: TQuizState) => state.quizAnswers);
 
   return (
     <Box>

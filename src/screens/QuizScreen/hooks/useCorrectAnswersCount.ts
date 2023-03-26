@@ -1,6 +1,6 @@
-import type { TAnswers } from 'app/types/TQuizState';
+import type { TQuizAnswers } from 'app/types/TQuizState';
 
-export function useCorrectAnswersCount(answers: TAnswers) {
+export function useCorrectAnswersCount(answers: TQuizAnswers) {
   return Object.values(answers).filter(
     answer => answer.choice.index === answer.quizItem.answer,
   ).length;

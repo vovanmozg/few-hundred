@@ -6,13 +6,13 @@ export const useStore = create<TQuizState>(set => ({
   current: 0,
   quizItems: null,
   quizStatus: 'notStarted',
-  answers: {},
+  quizAnswers: {},
   resetQuiz: () => {
     set(() => ({
       quizItems: null,
       quizStatus: 'notStarted',
       current: 0,
-      answers: {},
+      quizAnswers: {},
     }));
   },
   setQuizItems: (quizItems: TQuizItem[]) => {
@@ -20,20 +20,20 @@ export const useStore = create<TQuizState>(set => ({
       quizItems,
       quizStatus: 'inProgress',
       current: 0,
-      answers: {},
+      quizAnswers: {},
     }));
   },
   selectAnswer: (params: TSelectAnswer) => {
     const { choice, quizItem } = params;
     set((state: TQuizState) => {
-      const answers = { ...state.answers };
+      const quizAnswers = { ...state.quizAnswers };
       const answer = {
         choice,
         quizItem,
       };
-      answers[quizItem.question] = answer;
+      quizAnswers[quizItem.question] = answer;
 
-      return { answers };
+      return { quizAnswers };
     });
   },
   nextQuizItem: () => {

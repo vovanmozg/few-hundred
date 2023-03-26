@@ -1,15 +1,15 @@
 import type { TChoice, TQuizItem } from 'app/types/TQuizItem';
 
-export type TAnswer = {
+export type TQuizAnswer = {
   choice: TChoice;
   quizItem: TQuizItem;
 };
-export type TAnswers = {
-  [key: string]: TAnswer;
+export type TQuizAnswers = {
+  [key: string]: TQuizAnswer;
 };
 export type TSelectAnswer = { choice: TChoice; quizItem: TQuizItem };
 export type TQuizState = {
-  answers: TAnswers;
+  quizAnswers: TQuizAnswers;
   current: number;
   quizItems: TQuizItem[] | null;
   quizStatus: 'notStarted' | 'inProgress' | 'finished';
