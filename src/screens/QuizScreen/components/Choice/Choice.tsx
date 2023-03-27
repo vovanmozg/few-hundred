@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Box, Pressable, Text } from 'native-base';
+import { useSelectAnswer } from 'app/screens/QuizScreen/components/Choice/hooks/useSelectAnswer';
 import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
-import { useStore } from 'app/store/quizState';
+import { useGetAnswers } from 'app/screens/ResultQuizScreen/hooks/useGetAnswers';
 import type { TChoice, TQuizItem } from 'app/types/TQuizItem';
-import type { TQuizAnswer, TQuizState } from 'app/types/TQuizState';
+import type { TQuizAnswer } from 'app/types/TQuizState';
 
 function choiceColor(choice: TChoice, answer?: TQuizAnswer) {
   const bgColors = {
@@ -24,8 +25,8 @@ type TProps = {
   choice: TChoice;
 };
 export function Choice({ choice, quizItem }: TProps) {
-  const selectAnswer = useStore((state: TQuizState) => state.selectAnswer);
-  const answers = useStore((state: TQuizState) => state.quizAnswers);
+  const selectAnswer = useSelectAnswer();
+  const answers = useGetAnswers();
   const { isAnswerSelected } = useCurrentQuizItem();
 
   const onSelectAnswer = () => {
