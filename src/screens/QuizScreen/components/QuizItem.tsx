@@ -2,9 +2,8 @@ import * as React from 'react';
 import { Box } from 'native-base';
 import { Explanation } from 'app/screens/QuizScreen/components/Explanation';
 import { Question } from 'app/screens/QuizScreen/components/Question';
-import { useStore } from 'app/store/quizState';
+import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
 import type { TQuizItem } from 'app/types/TQuizItem';
-import type { TQuizState } from 'app/types/TQuizState';
 
 import { Choices } from './Choices';
 
@@ -24,7 +23,7 @@ export function QuizItem({ quizItem }: TProps) {
   //   '\n' +
   //   '<a href="https://ruby-doc.org/core-2.7.1/Range.html#method-i-3D-3D-3D">https://ruby-doc.org/core-2.7.1/Range.html#method-i-3D-3D-3D</a>';
 
-  const answers = useStore((state: TQuizState) => state.quizAnswers);
+  const { isAnswerSelected } = useCurrentQuizItem();
 
   return (
     <Box>
@@ -32,7 +31,7 @@ export function QuizItem({ quizItem }: TProps) {
         <Question text={quizItem.question} />
       </Box>
       <Choices quizItem={quizItem} />
-      {answers[quizItem.question] && quizItem.explanation && (
+      {isAnswerSelected && quizItem.explanation && (
         <Explanation text={quizItem.explanation} />
       )}
     </Box>
