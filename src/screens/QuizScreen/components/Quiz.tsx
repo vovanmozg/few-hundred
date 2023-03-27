@@ -23,7 +23,7 @@ export function Quiz() {
       <Box h="90%">
         <ScrollView>
           <Box>
-            <QuizItem quizItem={currentQuizItem} />
+            <QuizItem />
           </Box>
         </ScrollView>
       </Box>

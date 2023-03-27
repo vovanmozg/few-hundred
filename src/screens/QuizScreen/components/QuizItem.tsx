@@ -3,15 +3,10 @@ import { Box } from 'native-base';
 import { Explanation } from 'app/screens/QuizScreen/components/Explanation';
 import { Question } from 'app/screens/QuizScreen/components/Question';
 import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
-import type { TQuizItem } from 'app/types/TQuizItem';
 
 import { Choices } from './Choices';
 
-type TProps = {
-  quizItem: TQuizItem;
-};
-
-export function QuizItem({ quizItem }: TProps) {
+export function QuizItem() {
   // let text =
   //   'In Ruby, the === operator is used for pattern matching, and it is implemented differently depending on the type of object being compared.' +
   //   '\n' +
@@ -23,16 +18,16 @@ export function QuizItem({ quizItem }: TProps) {
   //   '\n' +
   //   '<a href="https://ruby-doc.org/core-2.7.1/Range.html#method-i-3D-3D-3D">https://ruby-doc.org/core-2.7.1/Range.html#method-i-3D-3D-3D</a>';
 
-  const { isAnswerSelected } = useCurrentQuizItem();
+  const { currentQuizItem, isAnswerSelected } = useCurrentQuizItem();
 
   return (
     <Box>
       <Box mb="10">
-        <Question text={quizItem.question} />
+        <Question text={currentQuizItem.question} />
       </Box>
-      <Choices quizItem={quizItem} />
-      {isAnswerSelected && quizItem.explanation && (
-        <Explanation text={quizItem.explanation} />
+      <Choices quizItem={currentQuizItem} />
+      {isAnswerSelected && currentQuizItem.explanation && (
+        <Explanation text={currentQuizItem.explanation} />
       )}
     </Box>
   );
