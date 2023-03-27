@@ -26,7 +26,7 @@ export function useCurrentQuizItem(): {
       return composeResult();
     }
 
-    const isAnswerSelected = !!quizAnswers[currentQuizItem.question];
+    const isAnswerSelected = !!quizAnswers[currentQuizItem.id];
     return composeResult(currentQuizItem, isAnswerSelected);
   });
 }

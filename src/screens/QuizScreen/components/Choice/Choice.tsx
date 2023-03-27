@@ -37,7 +37,7 @@ export function Choice({ choice, quizItem }: TProps) {
     selectAnswer({ choice, quizItem });
   };
 
-  const bg = choiceColor(choice, answers[quizItem.question]);
+  const bg = choiceColor(choice, answers[quizItem.id]);
 
   return (
     <Pressable py="1" onPress={onSelectAnswer} width="100%">

@@ -9,6 +9,7 @@ export type TImportedRubyQueistion = {
   answer: 'string';
   choices: TImportedChoices;
   explanation: string;
+  id: string;
   question: string;
   tags: TTag[];
   type: 'mc' | 'ma';

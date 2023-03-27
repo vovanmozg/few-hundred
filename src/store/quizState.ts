@@ -31,7 +31,7 @@ export const useStore = create<TQuizState>(set => ({
         choice,
         quizItem,
       };
-      quizAnswers[quizItem.question] = answer;
+      quizAnswers[quizItem.id] = answer;
 
       return { quizAnswers };
     });
