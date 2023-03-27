@@ -4,14 +4,13 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Button, Center, Text } from 'native-base';
 import { useCorrectAnswersCount } from 'app/screens/QuizScreen/hooks/useCorrectAnswersCount';
 import { useStartQuiz } from 'app/screens/QuizScreen/hooks/useStartQuiz';
-import { useStore } from 'app/store/quizState';
+import { useGetAnswers } from 'app/screens/ResultQuizScreen/hooks/useGetAnswers';
 import { RootStackParamList } from 'app/types/app';
-import type { TQuizState } from 'app/types/TQuizState';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 export function ResultQuizScreen({ navigation }: Props) {
-  const answers = useStore((state: TQuizState) => state.quizAnswers);
+  const answers = useGetAnswers();
   const startQuiz = useStartQuiz();
 
   useEffect(() => {
