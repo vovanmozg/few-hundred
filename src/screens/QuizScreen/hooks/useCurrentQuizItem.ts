@@ -1,11 +1,18 @@
 import { useStore } from 'app/store/quizState';
+import { TQuizItem } from 'app/types/TQuizItem';
 import type { TQuizState } from 'app/types/TQuizState';
 
-function composeResult(current?: number, isAnswerSelected?: boolean) {
-  return { current, isAnswerSelected };
+function composeResult(
+  currentQuizItem?: TQuizItem,
+  isAnswerSelected?: boolean,
+): { currentQuizItem?: TQuizItem; isAnswerSelected?: boolean } {
+  return { currentQuizItem, isAnswerSelected };
 }
 
-export function useCurrentQuizItem() {
+export function useCurrentQuizItem(): {
+  currentQuizItem?: TQuizItem;
+  isAnswerSelected?: boolean;
+} {
   return useStore((state: TQuizState) => {
     const { quizAnswers, quizItems, current } = state;
 
@@ -13,24 +20,13 @@ export function useCurrentQuizItem() {
       return composeResult();
     }
 
-    const quizItem = quizItems[current];
+    const currentQuizItem = quizItems[current];
 
-    if (!quizItem) {
+    if (!currentQuizItem) {
       return composeResult();
     }
 
-    const isAnswerSelected = !!quizAnswers[quizItem.question];
-    return composeResult(current, isAnswerSelected);
-
-    //
-    // return {
-    //   number: state.current,
-    //   isAnswerSelected: state.answers[state.quizItems[state.current].question],
-    // };
-    //
-    // const { quizItems, current } = state;
-    // if (!quizItems) {
-    //   return null;
-    // }
+    const isAnswerSelected = !!quizAnswers[currentQuizItem.question];
+    return composeResult(currentQuizItem, isAnswerSelected);
   });
 }
