@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Box, Pressable, Text } from 'native-base';
+import { isCorrect } from 'app/domain/isCorrect';
 import { useSelectAnswer } from 'app/screens/QuizScreen/components/Choice/hooks/useSelectAnswer';
 import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
 import { useGetAnswers } from 'app/screens/ResultQuizScreen/hooks/useGetAnswers';
@@ -17,7 +18,7 @@ function choiceColor(choice: TChoice, answer?: TQuizAnswer) {
     return bgColors.normal;
   }
 
-  return choice.index === '1' ? bgColors.correct : bgColors.incorrect;
+  return isCorrect(choice) ? bgColors.correct : bgColors.incorrect;
 }
 
 type TProps = {

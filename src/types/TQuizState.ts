@@ -15,6 +15,6 @@ export type TQuizState = {
   quizStatus: 'notStarted' | 'inProgress' | 'finished';
   nextQuizItem: () => void;
   resetQuiz: () => void;
-  selectAnswer: (params: TSelectAnswer) => void;
+  chooseAnswer: (params: TSelectAnswer) => void;
   setQuizItems: (quizItems: TQuizItem[]) => void;
 };
