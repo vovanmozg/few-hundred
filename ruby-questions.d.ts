@@ -6,12 +6,13 @@ declare module 'ruby-questions' {
   type TTag = 'beginner-level' | 'intermediate-level' | 'advanced-level';
 
   type TImportedRubyQueistion = {
-    explanation: string;
-    question: string;
-    type: 'mc' | 'ma';
-    choices: TImportedChoices;
     answer: 'string';
+    choices: TImportedChoices;
+    explanation: string;
+    id: string;
+    question: string;
     tags: TTag[];
+    type: 'mc' | 'ma';
   };
 
   export const ruby: TImportedRubyQueistion[];

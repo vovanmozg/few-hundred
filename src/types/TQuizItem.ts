@@ -1,4 +1,4 @@
-import { TImportedRubyQueistion } from 'app/types/tImportedQubyQuestions';
+import type { TImportedRubyQueistion } from 'ruby-questions';
 
 export type TChoice = {
   index: string;

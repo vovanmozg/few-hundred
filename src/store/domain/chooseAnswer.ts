@@ -1,4 +1,4 @@
-import { TQuizState, TSelectAnswer } from 'app/types/TQuizState';
+import type { TQuizState, TSelectAnswer } from 'app/types/TQuizState';
 
 export function chooseAnswer(set) {
   return (params: TSelectAnswer) => {

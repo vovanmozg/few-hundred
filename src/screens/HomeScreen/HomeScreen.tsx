@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Button, Center, Image } from 'native-base';
 import ruby from 'app/assets/img/ruby.png';
-import { useReadProgress } from 'app/screens/HomeScreen/hooks/useReadProgress';
+import { Progress } from 'app/screens/HomeScreen/components/Progress';
 import { useResetQuiz } from 'app/screens/HomeScreen/hooks/useResetQuiz';
 import { useStartQuiz } from 'app/screens/QuizScreen/hooks/useStartQuiz';
 import { RootStackParamList } from 'app/types/app';
@@ -12,9 +12,6 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 export function HomeScreen({ navigation }: Props) {
   const startQuiz = useStartQuiz();
   const resetQuiz = useResetQuiz();
-
-  // TODO: only read with debug to console
-  useReadProgress();
 
   // Reset quiz when screen loaded
   useEffect(() => {
@@ -28,6 +25,7 @@ export function HomeScreen({ navigation }: Props) {
 
   return (
     <Center h="100%" w="100%" alignSelf="center">
+      <Progress />
       <Image mb="10" alt="" source={ruby} width={117} height={92} />
 
       <Button onPress={onPress}>Play</Button>
