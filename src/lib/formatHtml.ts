@@ -10,14 +10,10 @@ function replaceCode(html: string): string {
   if (count === 1) {
     if (html.search('\n<code>') >= 0) {
       // Если в вопросе код многострочный
-      formattedHtml = html
-        .replace('\n<code>', '<div class="code"><code>')
-        .replace('</code>', '</code></div>');
+      formattedHtml = html.replace('\n<code>', '```').replace('</code>', '```');
     } else {
       // Если в вопросе инлайн код
-      formattedHtml = html
-        .replace(/<code>/g, '<span class="inlineCode"><code> ')
-        .replace(/<\/code>/g, ' </code></span>');
+      formattedHtml = html.replace(/<code>/g, '` ').replace(/<\/code>/g, ' `');
     }
   }
 
@@ -28,9 +24,21 @@ function replaceCode(html: string): string {
   return formattedHtml;
 }
 
+function escape(html: string): string {
+  return html
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 function replaceGraveAccent(str: string): string {
   const regex = /`(.*?)`/g;
-  return str.replace(regex, '<span class="inlineCode"><code>$1</code></span>');
+  const regexThreeGraveAccent = /```((.|\n)*?)```/g;
+  return str
+    .replace(regexThreeGraveAccent, '<div class="code"><code>$1</code></div>')
+    .replace(regex, '<span class="inlineCode"><code>$1</code></span>');
 }
 
 // https://stackoverflow.com/questions/37684/how-to-replace-plain-urls-with-links
@@ -41,7 +49,9 @@ function insertLinks(str: string): string {
 }
 
 export function formatHtml(html: string): string {
-  const formattedHtml = replaceGraveAccent(replaceCode(insertLinks(html)))
+  const formattedHtml = replaceGraveAccent(
+    insertLinks(escape(replaceCode(html))),
+  )
     .split('\n')
     .map((text: string) => `<p>${text}</p>`)
     .join('');
