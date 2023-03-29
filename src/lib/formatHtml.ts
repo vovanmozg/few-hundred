@@ -1,27 +1,8 @@
 function replaceCode(html: string): string {
-  const count = (html.match('<code>') || []).length;
-
-  let formattedHtml = '';
-
-  if (count === 0) {
-    formattedHtml = html;
-  }
-
-  if (count === 1) {
-    if (html.search('\n<code>') >= 0) {
-      // Если в вопросе код многострочный
-      formattedHtml = html.replace('\n<code>', '```').replace('</code>', '```');
-    } else {
-      // Если в вопросе инлайн код
-      formattedHtml = html.replace(/<code>/g, '` ').replace(/<\/code>/g, ' `');
-    }
-  }
-
-  if (count > 1) {
-    throw Error;
-  }
-
-  return formattedHtml;
+  // Not supported nested <code> tags
+  return html
+    .replace(/\n<code>((.|\n)*?)<\/code>/g, '```$1```')
+    .replace(/<code>((.|\n)*?)<\/code>/g, '`$1`');
 }
 
 function escape(html: string): string {
@@ -49,9 +30,10 @@ function insertLinks(str: string): string {
 }
 
 export function formatHtml(html: string): string {
-  const formattedHtml = replaceGraveAccent(
-    insertLinks(escape(replaceCode(html))),
-  )
+  const withoutCodeTags = replaceCode(html);
+  const escaped = escape(withoutCodeTags);
+  const withLinks = insertLinks(escaped);
+  const formattedHtml = replaceGraveAccent(withLinks)
     .split('\n')
     .map((text: string) => `<p>${text}</p>`)
     .join('');
