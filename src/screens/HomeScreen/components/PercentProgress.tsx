@@ -3,7 +3,7 @@ import { Box, Text } from 'native-base';
 import { bg } from 'app/debug';
 import { useReadProgress } from 'app/screens/HomeScreen/hooks/useReadProgress';
 
-export function Progress() {
+export function PercentProgress() {
   const progress = useReadProgress();
 
   return (
