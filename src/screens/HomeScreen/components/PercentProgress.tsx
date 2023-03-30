@@ -4,7 +4,7 @@ import { bg } from 'app/debug';
 import { useReadProgress } from 'app/screens/HomeScreen/hooks/useReadProgress';
 
 export function PercentProgress() {
-  const progress = useReadProgress();
+  const { averageWeight } = useReadProgress();
 
   return (
     <Box
@@ -13,7 +13,7 @@ export function PercentProgress() {
       flexDirection="row"
       justifyContent="space-between">
       <Text fontSize="4xl">
-        <Text>{Math.floor(progress * 100)}%</Text>
+        <Text>{Math.floor(averageWeight * 100)}%</Text>
       </Text>
     </Box>
   );

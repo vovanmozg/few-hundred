@@ -1,3 +1,4 @@
+import React from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Button, Center, Text } from 'native-base';
 import { useCorrectAnswersCount } from 'app/screens/QuizScreen/hooks/useCorrectAnswersCount';

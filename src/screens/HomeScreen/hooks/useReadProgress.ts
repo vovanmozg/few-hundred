@@ -17,8 +17,15 @@ function calculateAnswerWeight(
   return weightsMap[countCorrectAnswers(answerCorrectnessFlags)];
 }
 
-export function useReadProgress(): number {
+export function useReadProgress(): {
+  averageWeight: number;
+  progressWeights: Record<string, number>;
+} {
   const progress = useAppStore((state: TAppState) => state.answersProgress);
+
+  const answeredWeights = Object.fromEntries(
+    Object.entries(progress).map(([k, v]) => [k, calculateAnswerWeight(v)]),
+  );
 
   const answerCorrectnessFlagsList = Object.values(progress);
 
@@ -35,5 +42,11 @@ export function useReadProgress(): number {
   const averageWeight =
     paddedWeight.reduce((acc, value) => acc + value, 0) / paddedWeight.length;
 
-  return averageWeight;
+  const progressWeights = Object.fromEntries(
+    rubyQuestions().map(question => {
+      return [question.id, answeredWeights[question.id] || 0];
+    }),
+  );
+
+  return { averageWeight, progressWeights };
 }

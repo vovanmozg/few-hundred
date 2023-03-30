@@ -4,9 +4,8 @@ export type TQuizAnswer = {
   choice: TChoice;
   quizItem: TQuizItem;
 };
-export type TQuizAnswers = {
-  [key: string]: TQuizAnswer;
-};
+export type TQuizAnswers = Record<string, TQuizAnswer>;
+
 export type TSelectAnswer = { choice: TChoice; quizItem: TQuizItem };
 export type TQuizState = {
   quizAnswers: TQuizAnswers;

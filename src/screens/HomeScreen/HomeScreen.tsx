@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Button, Center, Image } from 'native-base';
+import { Button, Center, Image, Pressable } from 'native-base';
 import ruby from 'app/assets/img/ruby.png';
 import { PercentProgress } from 'app/screens/HomeScreen/components/PercentProgress';
 import { useResetQuiz } from 'app/screens/HomeScreen/hooks/useResetQuiz';
@@ -23,9 +23,16 @@ export function HomeScreen({ navigation }: Props) {
     navigation.navigate('Quiz');
   };
 
+  const onPressProgress = () => {
+    navigation.navigate('ProgressMap');
+  };
+
   return (
     <Center h="100%" w="100%" alignSelf="center">
-      <PercentProgress />
+      <Pressable py="1" onPress={onPressProgress}>
+        <PercentProgress />
+      </Pressable>
+
       <Image mb="10" alt="" source={ruby} width={117} height={92} />
 
       <Button onPress={onPress}>Play</Button>

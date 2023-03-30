@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NativeBaseProvider } from 'native-base';
 import { HomeScreen } from 'app/screens/HomeScreen';
+import { ProgressMapScreen } from 'app/screens/ProgressMapScreen';
 import { QuizScreen } from 'app/screens/QuizScreen';
 import { ResultQuizScreen } from 'app/screens/ResultQuizScreen';
 import { RootStackParamList } from 'app/types/app';
@@ -44,6 +45,11 @@ export function AppWithNavigation() {
                 />
               ),
             })}
+          />
+          <Stack.Screen
+            name="ProgressMap"
+            component={ProgressMapScreen}
+            options={commonOptions}
           />
         </Stack.Navigator>
       </NavigationContainer>
