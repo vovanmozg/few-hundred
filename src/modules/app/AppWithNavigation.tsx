@@ -1,4 +1,5 @@
 import React from 'react';
+import { HeaderBackButton } from '@react-navigation/elements';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NativeBaseProvider } from 'native-base';
@@ -33,7 +34,16 @@ export function AppWithNavigation() {
           <Stack.Screen
             name="ResultQuiz"
             component={ResultQuizScreen}
-            options={commonOptions}
+            options={({ navigation }) => ({
+              ...commonOptions,
+              headerLeft: () => (
+                <HeaderBackButton
+                  onPress={() => {
+                    navigation.navigate('Home');
+                  }}
+                />
+              ),
+            })}
           />
         </Stack.Navigator>
       </NavigationContainer>
