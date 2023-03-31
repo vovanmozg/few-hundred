@@ -16,4 +16,5 @@ declare module 'ruby-questions' {
   };
 
   export const ruby: TImportedRubyQueistion[];
+  export const rails: TImportedRubyQueistion[];
 }

@@ -24,5 +24,5 @@ function transformRubyQuestions(
 }
 
 export function rubyQuestions() {
-  return transformRubyQuestions(rq.ruby);
+  return transformRubyQuestions(rq.ruby.concat(rq.rails));
 }
