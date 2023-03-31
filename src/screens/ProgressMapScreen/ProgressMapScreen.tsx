@@ -28,11 +28,11 @@ export function ProgressMapScreen() {
           <Flex
             bg={color}
             flexWrap="wrap"
-            height="4"
+            h="4"
             key={key}
             m="1"
             rounded="xs"
-            width="4"
+            w="4"
           />
         );
       })}
