@@ -25,7 +25,7 @@ export function AppWithNavigation() {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={commonOptions}
+            options={{ headerShown: false }}
           />
           <Stack.Screen
             name="Quiz"
