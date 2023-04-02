@@ -30,16 +30,18 @@ export function HomeScreen({ navigation }: Props) {
 
   return (
     <Center h="100%" w="100%" alignSelf="center">
-      <Box position="absolute">
-        <ProgressMapScreen />
-      </Box>
-      <Pressable py="1" onPress={onPressProgress}>
-        <PercentProgress />
-      </Pressable>
-
       <Image mb="10" alt="" source={ruby} width={117} height={92} />
 
       <Button onPress={onPress}>Play</Button>
+
+      <Pressable mt="20" onPress={onPressProgress} w="70%">
+        <Center>
+          <PercentProgress />
+          <Box h="50" w="100%">
+            <ProgressMapScreen />
+          </Box>
+        </Center>
+      </Pressable>
     </Center>
   );
 }
