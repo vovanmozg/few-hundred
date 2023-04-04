@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Box, Radio } from 'native-base';
 import { bg } from 'app/debug';
-import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
 import type { TChoice } from 'app/types/TQuizItem';
 
+import { useCurrentQuizItem } from '../hooks/useCurrentQuizItem';
 import { Choice } from './Choice';
 
 const randSort = () => Math.random() - 0.5;

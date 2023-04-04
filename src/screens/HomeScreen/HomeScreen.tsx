@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Box, Button, Center, Image, Pressable } from 'native-base';
 import ruby from 'app/assets/img/ruby.png';
-import { PercentProgress } from 'app/screens/HomeScreen/components/PercentProgress';
-import { useResetQuiz } from 'app/screens/HomeScreen/hooks/useResetQuiz';
+import { useStartQuiz } from 'app/hooks/useStartQuiz';
 import { ProgressMapScreen } from 'app/screens/ProgressMapScreen';
-import { useStartQuiz } from 'app/screens/QuizScreen/hooks/useStartQuiz';
 import { RootStackParamList } from 'app/types/app';
+
+import { PercentProgress } from './components/PercentProgress';
+import { useResetQuiz } from './hooks/useResetQuiz';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
