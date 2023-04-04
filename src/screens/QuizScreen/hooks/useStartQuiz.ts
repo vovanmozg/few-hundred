@@ -1,5 +1,5 @@
+import { useReadProgress } from 'app/hooks/useReadProgress';
 import { rubyQuestions } from 'app/lib/rubyQuestions';
-import { useReadProgress } from 'app/screens/HomeScreen/hooks/useReadProgress';
 import { useStore } from 'app/store/quizState';
 import type { TQuizState } from 'app/types/TQuizState';
 

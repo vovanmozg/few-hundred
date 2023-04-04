@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Box } from 'native-base';
-import { useReadProgress } from 'app/screens/HomeScreen/hooks/useReadProgress';
+import { useReadProgress } from 'app/hooks/useReadProgress';
 
 import { SvgProgress } from './SvgProgress';
 import type { Dimensions } from './types';

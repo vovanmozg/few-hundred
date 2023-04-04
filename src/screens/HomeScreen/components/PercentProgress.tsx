@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Text } from 'native-base';
 import { bg } from 'app/debug';
-import { useReadProgress } from 'app/screens/HomeScreen/hooks/useReadProgress';
+import { useReadProgress } from 'app/hooks/useReadProgress';
 
 export function PercentProgress() {
   const { averageWeight } = useReadProgress();
