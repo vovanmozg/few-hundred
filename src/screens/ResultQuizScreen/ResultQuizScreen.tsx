@@ -5,7 +5,7 @@ import { useStartQuiz } from 'app/hooks/useStartQuiz';
 import { useCorrectAnswersCount } from 'app/screens/QuizScreen/hooks/useCorrectAnswersCount';
 import { RootStackParamList } from 'app/types/app';
 
-import { useGetAnswers } from './hooks/useGetAnswers';
+import { useGetAnswers } from 'src/hooks/useGetAnswers';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 

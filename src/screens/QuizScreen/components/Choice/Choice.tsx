@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box, Pressable, Text } from 'native-base';
 import { isCorrect } from 'app/domain/isCorrect';
-import { useGetAnswers } from 'app/screens/ResultQuizScreen/hooks/useGetAnswers';
+import { useGetAnswers } from 'app/hooks/useGetAnswers';
 import type { TChoice, TQuizItem } from 'app/types/TQuizItem';
 import type { TQuizAnswer } from 'app/types/TQuizState';
 
