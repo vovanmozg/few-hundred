@@ -1,9 +1,10 @@
 import React from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Box } from 'native-base';
-import { Quiz } from 'app/screens/QuizScreen/components/Quiz';
-import { useSetNavigationTitle } from 'app/screens/QuizScreen/hooks/useSetNavigationTitle';
 import { RootStackParamList } from 'app/types/app';
+
+import { Quiz } from './components/Quiz';
+import { useSetNavigationTitle } from './hooks/useSetNavigationTitle';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 

@@ -37,6 +37,7 @@ export function AppWithNavigation() {
             component={ResultQuizScreen}
             options={({ navigation }) => ({
               ...commonOptions,
+              // eslint-disable-next-line react/no-unstable-nested-components
               headerLeft: () => (
                 <HeaderBackButton
                   onPress={() => {

@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { Box, Pressable, Text } from 'native-base';
 import { isCorrect } from 'app/domain/isCorrect';
-import { useSelectAnswer } from 'app/screens/QuizScreen/components/Choice/hooks/useSelectAnswer';
-import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
 import { useGetAnswers } from 'app/screens/ResultQuizScreen/hooks/useGetAnswers';
 import type { TChoice, TQuizItem } from 'app/types/TQuizItem';
 import type { TQuizAnswer } from 'app/types/TQuizState';
+
+import { useCurrentQuizItem } from '../../hooks/useCurrentQuizItem';
+import { useSelectAnswer } from './hooks/useSelectAnswer';
 
 function choiceColor(choice: TChoice, answer?: TQuizAnswer) {
   const bgColors = {

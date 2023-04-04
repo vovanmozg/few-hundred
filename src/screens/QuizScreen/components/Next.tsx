@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Box, Button } from 'native-base';
-import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
-import { useNextQuizItem } from 'app/screens/QuizScreen/hooks/useNextQuizItem';
+
+import { useCurrentQuizItem } from '../hooks/useCurrentQuizItem';
+import { useNextQuizItem } from '../hooks/useNextQuizItem';
 
 export function Next() {
   const { isAnswerSelected } = useCurrentQuizItem();

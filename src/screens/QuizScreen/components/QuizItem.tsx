@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Box } from 'native-base';
-import { Explanation } from 'app/screens/QuizScreen/components/Explanation';
-import { Question } from 'app/screens/QuizScreen/components/Question';
-import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
 
+import { useCurrentQuizItem } from '../hooks/useCurrentQuizItem';
 import { Choices } from './Choices';
+import { Explanation } from './Explanation';
+import { Question } from './Question';
 
 export function QuizItem() {
   // let text =
