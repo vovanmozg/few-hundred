@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Box, ScrollView } from 'native-base';
 import { bg } from 'app/debug';
-import { useCurrentQuizItem } from 'app/screens/QuizScreen/hooks/useCurrentQuizItem';
 
+import { useCurrentQuizItem } from '../hooks/useCurrentQuizItem';
 import { Next } from './Next';
 import { QuizItem } from './QuizItem';
 
