@@ -1,11 +1,11 @@
 import React from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Button, Center, Text } from 'native-base';
+import { useGetAnswers } from 'src/hooks/useGetAnswers';
 import { useStartQuiz } from 'app/hooks/useStartQuiz';
-import { useCorrectAnswersCount } from 'app/screens/QuizScreen/hooks/useCorrectAnswersCount';
 import { RootStackParamList } from 'app/types/app';
 
-import { useGetAnswers } from 'src/hooks/useGetAnswers';
+import { useCorrectAnswersCount } from './hooks/useCorrectAnswersCount';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
