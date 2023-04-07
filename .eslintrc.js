@@ -37,6 +37,7 @@ module.exports = {
         },
       },
     ],
+    '@typescript-eslint/no-explicit-any': ['error'],
     'import/extensions': [
       'error',
       'ignorePackages',
