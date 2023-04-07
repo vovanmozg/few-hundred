@@ -1,8 +1,8 @@
 import { create } from 'zustand';
-import { chooseAnswer } from 'app/store/domain/chooseAnswer';
-import { nextQuizItem } from 'app/store/domain/nextQuizItem';
-import { resetQuiz } from 'app/store/domain/resetQuiz';
-import { setQuizItems } from 'app/store/domain/setQuizItems';
+import { chooseAnswer } from 'app/store/quizState/chooseAnswer';
+import { nextQuizItem } from 'app/store/quizState/nextQuizItem';
+import { resetQuiz } from 'app/store/quizState/resetQuiz';
+import { setQuizItems } from 'app/store/quizState/setQuizItems';
 import type { TQuizState } from 'app/types/TQuizState';
 
 export const useStore = create<TQuizState>(set => ({
