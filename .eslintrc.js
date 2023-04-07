@@ -12,7 +12,7 @@ module.exports = {
     '@react-native-community',
     'prettier',
   ],
-  plugins: ['simple-import-sort'],
+  plugins: ['jest', 'simple-import-sort'],
   settings: {
     'import/resolver': {
       'babel-module': {},
