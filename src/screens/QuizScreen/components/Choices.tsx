@@ -13,8 +13,16 @@ export function Choices() {
   const [choices, setChoices] = useState<TChoice[]>([]);
   const { currentQuizItem } = useCurrentQuizItem();
   useEffect(() => {
+    if (!currentQuizItem) {
+      return;
+    }
+
     setChoices(currentQuizItem.choices.sort(randSort));
-  }, [currentQuizItem.choices]);
+  }, [currentQuizItem?.choices]);
+
+  if (!currentQuizItem) {
+    return null;
+  }
 
   return (
     <Box bg={bg('blue.400')}>

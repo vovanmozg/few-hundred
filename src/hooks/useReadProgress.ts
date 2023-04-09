@@ -7,7 +7,11 @@ type TCorrectAnswersCount = 0 | 1 | 2 | 3;
 function countCorrectAnswers(
   answerCorrectnessFlags: TAnswerCorrectnessFlag[],
 ): TCorrectAnswersCount {
-  return answerCorrectnessFlags.reduce((acc, value) => acc + value, 0);
+  return answerCorrectnessFlags.reduce(
+    (acc: TCorrectAnswersCount, value): TCorrectAnswersCount =>
+      (acc + value) as TCorrectAnswersCount,
+    0,
+  );
 }
 
 function calculateAnswerWeight(

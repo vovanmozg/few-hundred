@@ -1,28 +1,32 @@
 import React, { useCallback, useState } from 'react';
 import { Box } from 'native-base';
+import type { LayoutChangeEvent } from 'react-native';
 import { useReadProgress } from 'app/hooks/useReadProgress';
 
 import { SvgProgress } from './SvgProgress';
 import type { Dimensions } from './types';
 
-const useComponentSize = () => {
-  const [size, setSize] = useState<Dimensions, () => void>(null);
+const useComponentSize = (): {
+  size: Dimensions | null;
+  onLayout: (event: LayoutChangeEvent) => void;
+} => {
+  const [size, setSize] = useState<Dimensions | null>(null);
 
-  const onLayout = useCallback(event => {
+  const onLayout = useCallback((event: LayoutChangeEvent) => {
     const { width, height }: Dimensions = event.nativeEvent.layout;
     setSize({ width, height });
   }, []);
 
-  return [size, onLayout];
+  return { size, onLayout };
 };
 
 export function ProgressMapScreen() {
   const { progressWeights } = useReadProgress();
-  const [size, onLayout] = useComponentSize();
+  const { size, onLayout } = useComponentSize();
 
   return (
     <Box p="0" onLayout={onLayout} w="100%" h="100%">
-      <SvgProgress progressWeights={progressWeights} size={size} />
+      {size && <SvgProgress progressWeights={progressWeights} size={size} />}
     </Box>
   );
 }

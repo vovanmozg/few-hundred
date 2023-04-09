@@ -1,13 +1,16 @@
 import { isCorrect } from 'app/domain/isCorrect';
 import { useStore as useAppStore } from 'app/store/appState';
 import { useStore as useQuizStore } from 'app/store/quizState';
-import { TQuizState } from 'app/types/TQuizState';
+import type { TAppState } from 'app/types/TAppState';
+import type { TQuizState, TSelectAnswer } from 'app/types/TQuizState';
 
 export function useSelectAnswer() {
   const chooseAnswer = useQuizStore((state: TQuizState) => state.chooseAnswer);
-  const saveAnswerProgress = useAppStore(state => state.saveAnswerProgress);
+  const saveAnswerProgress = useAppStore(
+    (state: TAppState) => state.saveAnswerProgress,
+  );
 
-  return ({ choice, quizItem }) => {
+  return ({ choice, quizItem }: TSelectAnswer) => {
     chooseAnswer({ choice, quizItem });
 
     saveAnswerProgress(quizItem, isCorrect(choice));

@@ -20,12 +20,16 @@ export function QuizItem() {
 
   const { currentQuizItem, isAnswerSelected } = useCurrentQuizItem();
 
+  if (!currentQuizItem) {
+    return null;
+  }
+
   return (
     <Box>
       <Box mb="10">
         <Question text={currentQuizItem.question} />
       </Box>
-      <Choices quizItem={currentQuizItem} />
+      <Choices />
       {isAnswerSelected && currentQuizItem.explanation && (
         <Explanation text={currentQuizItem.explanation} />
       )}

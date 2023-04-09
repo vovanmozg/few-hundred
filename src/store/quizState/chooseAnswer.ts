@@ -1,6 +1,8 @@
 import type { TQuizState, TSelectAnswer } from 'app/types/TQuizState';
 
-export function chooseAnswer(set) {
+export function chooseAnswer(
+  set: (partial: (state: TQuizState) => Partial<TQuizState>) => void,
+) {
   return (params: TSelectAnswer) => {
     const { choice, quizItem } = params;
     set((state: TQuizState) => {

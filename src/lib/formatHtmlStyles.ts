@@ -9,7 +9,7 @@ export const classesStyles = {
   },
   inlineCode: {
     backgroundColor: '#F0F0F0',
-    whiteSpace: 'pre',
+    // whiteSpace: 'pre',
   },
 };
 

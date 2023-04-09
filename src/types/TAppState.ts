@@ -5,6 +5,8 @@
  * 111 - right answered three times
  * */
 
+import type { TQuizItem } from 'app/types/TQuizItem';
+
 export type TAnswerCorrectnessFlag = 0 | 1;
 
 type TAnswersProgress = {
@@ -13,4 +15,5 @@ type TAnswersProgress = {
 
 export type TAppState = {
   answersProgress: TAnswersProgress;
+  saveAnswerProgress: (quizItem: TQuizItem, isCorrect: boolean) => void;
 };

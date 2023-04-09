@@ -3,10 +3,14 @@ declare module 'ruby-questions' {
     [key: string]: string;
   };
 
-  type TTag = 'beginner-level' | 'intermediate-level' | 'advanced-level';
+  type TTag =
+    | 'beginner-level'
+    | 'intermediate-level'
+    | 'advanced-level'
+    | string;
 
   type TImportedRubyQueistion = {
-    answer: 'string';
+    answer: string;
     choices: TImportedChoices;
     explanation: string;
     id: string;

@@ -1,6 +1,10 @@
-export function nextQuizItem(set) {
+import { TQuizState } from 'app/types/TQuizState';
+
+export function nextQuizItem(
+  set: (partial: (state: TQuizState) => Partial<TQuizState>) => void,
+) {
   return () => {
-    set(state => {
+    set((state: TQuizState) => {
       const newCurrent = state.current + 1;
       if (state.quizItems && state.quizItems[newCurrent]) {
         return { current: state.current + 1 };

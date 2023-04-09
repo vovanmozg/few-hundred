@@ -50,7 +50,7 @@ export function SvgProgress({ progressWeights, size }: TProps) {
   const paddingY = (size.height - alignedHeight) / 2;
 
   return (
-    <Svg h="100%" w="100%">
+    <Svg>
       {Object.keys(progressWeights).map((key, i) => {
         const weight = progressWeights[key];
         const color = getProgressColor(weight);
