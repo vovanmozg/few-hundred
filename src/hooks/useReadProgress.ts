@@ -1,4 +1,4 @@
-import { rubyQuestions } from 'app/lib/rubyQuestions';
+import { useQuestions } from 'app/hooks/useQuestions';
 import { useStore as useAppStore } from 'app/store/appState';
 import { TAnswerCorrectnessFlag, TAppState } from 'app/types/TAppState';
 
@@ -26,6 +26,7 @@ export function useReadProgress(): {
   progressWeights: Record<string, number>;
 } {
   const progress = useAppStore((state: TAppState) => state.answersProgress);
+  const questions = useQuestions();
 
   const answeredWeights = Object.fromEntries(
     Object.entries(progress).map(([k, v]) => [k, calculateAnswerWeight(v)]),
@@ -37,7 +38,7 @@ export function useReadProgress(): {
     return calculateAnswerWeight(answerCorrectnessFlags);
   });
 
-  const allQuestionsCount = rubyQuestions().length;
+  const allQuestionsCount = questions.length;
   const answeredQuestionsCount = answerCorrectnessFlagsList.length;
   const unansweredQuestionsCount = allQuestionsCount - answeredQuestionsCount;
   const paddedWeight = weights.concat(Array(unansweredQuestionsCount).fill(0));
@@ -47,7 +48,7 @@ export function useReadProgress(): {
     paddedWeight.reduce((acc, value) => acc + value, 0) / paddedWeight.length;
 
   const progressWeights = Object.fromEntries(
-    rubyQuestions().map(question => {
+    questions.map(question => {
       return [question.id, answeredWeights[question.id] || 0];
     }),
   );

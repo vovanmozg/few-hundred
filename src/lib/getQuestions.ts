@@ -1,6 +1,6 @@
 import type { TImportedChoices, TImportedRubyQueistion } from 'ruby-questions';
 import rq from 'ruby-questions';
-import { TChoice, TQuizItem } from 'app/types/TQuizItem';
+import type { TChoice, TQuizItem } from 'app/types/TQuizItem';
 
 function transformChoices(choices: TImportedChoices): TChoice[] {
   const entries = Object.entries(choices);
@@ -23,6 +23,6 @@ function transformRubyQuestions(
   return questions.map(transformRubyQuestion);
 }
 
-export function rubyQuestions() {
+export function getQuestions(): TQuizItem[] {
   return transformRubyQuestions(rq.ruby.concat(rq.rails));
 }
