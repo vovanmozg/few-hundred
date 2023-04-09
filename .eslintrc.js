@@ -8,11 +8,11 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/recommended',
-    'plugin:import/typescript',
+    'plugin:@typescript-eslint/recommended',
     '@react-native-community',
     'prettier',
   ],
-  plugins: ['jest', 'simple-import-sort'],
+  plugins: ['jest', 'simple-import-sort', '@typescript-eslint'],
   settings: {
     'import/resolver': {
       'babel-module': {},
