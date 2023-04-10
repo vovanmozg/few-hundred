@@ -4,7 +4,7 @@ import { Box, Button, Center, Image, Pressable } from 'native-base';
 import ruby from 'app/assets/img/ruby.png';
 import { useStartQuiz } from 'app/hooks/useStartQuiz';
 import { ProgressMapScreen } from 'app/screens/ProgressMapScreen';
-import { RootStackParamList } from 'app/types/app';
+import type { RootStackParamList } from 'app/types/app';
 
 import { PercentProgress } from './components/PercentProgress';
 import { useResetQuiz } from './hooks/useResetQuiz';

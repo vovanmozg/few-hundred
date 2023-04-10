@@ -3,7 +3,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Button, Center, Text } from 'native-base';
 import { useGetAnswers } from 'src/hooks/useGetAnswers';
 import { useStartQuiz } from 'app/hooks/useStartQuiz';
-import { RootStackParamList } from 'app/types/app';
+import type { RootStackParamList } from 'app/types/app';
 
 import { useCorrectAnswersCount } from './hooks/useCorrectAnswersCount';
 

@@ -1,4 +1,4 @@
-import { TQuizState } from 'app/types/TQuizState';
+import type { TQuizState } from 'app/types/TQuizState';
 
 export function nextQuizItem(
   set: (partial: (state: TQuizState) => Partial<TQuizState>) => void,

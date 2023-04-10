@@ -8,3 +8,5 @@ export type TChoice = {
 export type TQuizItem = Omit<TImportedRubyQueistion, 'choices'> & {
   choices: TChoice[];
 };
+
+export type TQuizItemsObject = { [key: string]: TQuizItem };

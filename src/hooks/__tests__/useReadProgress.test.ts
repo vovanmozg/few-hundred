@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
 import { isObject } from 'app/lib/isObject';
 import { useSelectAnswer } from 'app/screens/QuizScreen/components/Choice/hooks/useSelectAnswer';
-import { TChoice } from 'app/types/TQuizItem';
+import type { TChoice } from 'app/types/TQuizItem';
 
 import { useReadProgress } from '../useReadProgress';
 

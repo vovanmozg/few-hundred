@@ -7,7 +7,7 @@ import { HomeScreen } from 'app/screens/HomeScreen';
 import { ProgressMapScreen } from 'app/screens/ProgressMapScreen';
 import { QuizScreen } from 'app/screens/QuizScreen';
 import { ResultQuizScreen } from 'app/screens/ResultQuizScreen';
-import { RootStackParamList } from 'app/types/app';
+import type { RootStackParamList } from 'app/types/app';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

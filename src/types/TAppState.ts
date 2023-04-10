@@ -9,11 +9,25 @@ import type { TQuizItem } from 'app/types/TQuizItem';
 
 export type TAnswerCorrectnessFlag = 0 | 1;
 
-type TAnswersProgress = {
+export type TAnswersProgress = {
   [id: string]: TAnswerCorrectnessFlag[];
+};
+
+export type TTopic = 'rails' | 'ruby';
+
+type TTopicSettings = {
+  isEnabled: boolean;
+};
+
+export type TTopicsSettins = {
+  [key in TTopic]: TTopicSettings;
 };
 
 export type TAppState = {
   answersProgress: TAnswersProgress;
+  settings: {
+    topics: TTopicsSettins;
+  };
   saveAnswerProgress: (quizItem: TQuizItem, isCorrect: boolean) => void;
+  setTopicsSettings: (isEnabled: boolean, topic: TTopic) => void;
 };

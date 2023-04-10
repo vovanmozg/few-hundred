@@ -1,10 +1,11 @@
 import { renderHook } from '@testing-library/react-hooks';
+import { isObject } from 'app/lib/isObject';
 
 import { useQuestions } from '../useQuestions';
 
 test('returns array', async () => {
   const { result } = renderHook(() => useQuestions());
 
-  expect(Array.isArray(result.current)).toBe(true);
-  expect(result.current.length).toBeGreaterThan(100);
+  expect(isObject(result.current)).toBe(true);
+  expect(Object.keys(result.current).length).toBeGreaterThan(100);
 });

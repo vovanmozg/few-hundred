@@ -1,5 +1,6 @@
 import type { TImportedChoices, TImportedRubyQueistion } from 'ruby-questions';
 import rq from 'ruby-questions';
+import type { TTopic } from 'app/types/TAppState';
 import type { TChoice, TQuizItem } from 'app/types/TQuizItem';
 
 function transformChoices(choices: TImportedChoices): TChoice[] {
@@ -23,6 +24,9 @@ function transformRubyQuestions(
   return questions.map(transformRubyQuestion);
 }
 
-export function getQuestions(): TQuizItem[] {
-  return transformRubyQuestions(rq.ruby.concat(rq.rails));
+export function getQuestions(): { [key in TTopic]: TQuizItem[] } {
+  return {
+    ruby: transformRubyQuestions(rq.ruby),
+    rails: transformRubyQuestions(rq.rails),
+  };
 }

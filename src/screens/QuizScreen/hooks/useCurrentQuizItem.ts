@@ -1,5 +1,5 @@
 import { useStore } from 'app/store/quizState';
-import { TQuizItem } from 'app/types/TQuizItem';
+import type { TQuizItem } from 'app/types/TQuizItem';
 import type { TQuizState } from 'app/types/TQuizState';
 
 function composeResult(

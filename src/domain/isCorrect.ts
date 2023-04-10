@@ -1,4 +1,4 @@
-import { TChoice } from 'app/types/TQuizItem';
+import type { TChoice } from 'app/types/TQuizItem';
 
 export function isCorrect(choice: TChoice) {
   return choice.index === '1';

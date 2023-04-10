@@ -1,5 +1,6 @@
 import { useQuestions } from 'app/hooks/useQuestions';
 import { useReadProgress } from 'app/hooks/useReadProgress';
+import { objectFilter } from 'app/lib/objectFilter';
 import { useStore } from 'app/store/quizState';
 import type { TQuizState } from 'app/types/TQuizState';
 
@@ -10,13 +11,14 @@ export function useStartQuiz(): () => void {
   const { progressWeights } = useReadProgress();
   const questions = useQuestions();
 
-  const unansweredQuestions = questions.filter(
+  const unansweredQuestions = objectFilter(
+    questions,
     question => progressWeights[question.id] !== 1,
   );
 
   return () =>
     setQuizItems(
-      unansweredQuestions
+      Object.values(unansweredQuestions)
         .sort(() => 0.5 - Math.random())
         .slice(0, QUESTIONS_COUNT),
     );
