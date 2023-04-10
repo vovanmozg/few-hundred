@@ -3,4 +3,5 @@ export type RootStackParamList = {
   Quiz: undefined;
   ProgressMap: undefined;
   ResultQuiz: undefined;
+  Settings: undefined;
 };

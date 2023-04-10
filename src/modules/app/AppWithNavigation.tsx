@@ -2,12 +2,14 @@ import React from 'react';
 import { HeaderBackButton } from '@react-navigation/elements';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NativeBaseProvider } from 'native-base';
+import { IconButton, NativeBaseProvider } from 'native-base';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { HomeScreen } from 'app/screens/HomeScreen';
 import { ProgressMapScreen } from 'app/screens/ProgressMapScreen';
 import { QuizScreen } from 'app/screens/QuizScreen';
 import { ResultQuizScreen } from 'app/screens/ResultQuizScreen';
-import type { RootStackParamList } from 'app/types/app';
+import { SettingsScreen } from 'app/screens/SettingsScreen';
+import { RootStackParamList } from 'app/types/app';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -25,7 +27,20 @@ export function AppWithNavigation() {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{ headerShown: false }}
+            options={({ navigation }) => ({
+              headerTitle: () => null,
+              headerTransparent: true,
+              // eslint-disable-next-line react/no-unstable-nested-components
+              headerRight: () => (
+                <IconButton
+                  variant="ghost"
+                  icon={<Icon name="settings" size={30} color="#164e63" />}
+                  onPress={() => {
+                    navigation.navigate('Settings');
+                  }}
+                />
+              ),
+            })}
           />
           <Stack.Screen
             name="Quiz"
@@ -50,6 +65,11 @@ export function AppWithNavigation() {
           <Stack.Screen
             name="ProgressMap"
             component={ProgressMapScreen}
+            options={commonOptions}
+          />
+          <Stack.Screen
+            name="Settings"
+            component={SettingsScreen}
             options={commonOptions}
           />
         </Stack.Navigator>
