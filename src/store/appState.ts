@@ -6,7 +6,7 @@ import type { TAppState } from 'app/types/TAppState';
 import { saveAnswerProgress } from './appState/saveAnswerProgress';
 import { setTopicsSettings } from './appState/setTopicsSettings';
 
-export const useStore = create<TAppState>(
+export const useStore = create<TAppState>()(
   persist(
     set =>
       ({
