@@ -19,6 +19,10 @@ module.exports = {
     },
   },
   rules: {
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { prefer: 'type-imports' },
+    ],
     '@typescript-eslint/member-delimiter-style': [
       'warn',
       {
