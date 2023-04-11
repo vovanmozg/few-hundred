@@ -1,10 +1,10 @@
 ### TODO
 
 - Highlight correct answer with green color
-- Add settings 
-  - for select questions category (ruby, rails)
+- Change hardcoded colors with theme colors
+- Add settings
   - Set hard/easy mode in settings
-  - Save progress
+  - Save progress to external storage
   - App version
 - Send statistics to server (when app starts)
 - Night theme
@@ -12,3 +12,4 @@
 - Add typescript/javascript questions
 - Add likes above question
 - Add rate button (with link to google play)
+- Localization (https://github.com/stefalda/ReactNativeLocalization)

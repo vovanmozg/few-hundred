@@ -8,18 +8,41 @@ import type { TQuizAnswer } from 'app/types/TQuizState';
 import { useCurrentQuizItem } from '../../hooks/useCurrentQuizItem';
 import { useSelectAnswer } from './hooks/useSelectAnswer';
 
-function choiceColor(choice: TChoice, answer?: TQuizAnswer) {
-  const bgColors = {
-    normal: 'muted.50',
-    correct: 'emerald.300',
-    incorrect: 'rose.300',
+function choiceStyle(
+  choice: TChoice,
+  answer: TQuizAnswer,
+  rightAnswer: string,
+) {
+  const styles = {
+    normal: {
+      backgroundColor: 'muted.50',
+      borderSize: 2,
+      borderColor: 'muted.50',
+    },
+    correct: {
+      backgroundColor: 'emerald.300',
+      borderSize: 2,
+      borderColor: 'emerald.300',
+    },
+    incorrect: {
+      backgroundColor: 'rose.300',
+      borderSize: 2,
+      borderColor: 'rose.300',
+    },
+    correctHint: {
+      backgroundColor: null,
+      borderSize: 2,
+      borderColor: 'emerald.300',
+    },
   };
 
   if (answer?.choice?.index !== choice.index) {
-    return bgColors.normal;
+    return answer && choice.index === rightAnswer
+      ? styles.correctHint
+      : styles.normal;
   }
 
-  return isCorrect(choice) ? bgColors.correct : bgColors.incorrect;
+  return isCorrect(choice) ? styles.correct : styles.incorrect;
 }
 
 type TProps = {
@@ -39,11 +62,17 @@ export function Choice({ choice, quizItem }: TProps) {
     selectAnswer({ choice, quizItem });
   };
 
-  const bg = choiceColor(choice, answers[quizItem.id]);
+  const style = choiceStyle(choice, answers[quizItem.id], quizItem.answer);
 
   return (
     <Pressable py="1" onPress={onSelectAnswer} width="100%">
-      <Box p="2" bg={bg} borderRadius="5" width="100%">
+      <Box
+        p="2"
+        bg={style.backgroundColor}
+        borderColor={style.borderColor}
+        borderWidth={style.borderSize}
+        borderRadius="5"
+        width="100%">
         <Text>{choice.value}</Text>
       </Box>
     </Pressable>
