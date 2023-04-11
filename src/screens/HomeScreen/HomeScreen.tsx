@@ -31,7 +31,7 @@ export function HomeScreen({ navigation }: Props) {
 
   return (
     <Center h="100%" w="100%" alignSelf="center">
-      <Image mb="10" alt="" source={ruby} width={117} height={92} />
+      <Image mb="10" mt="40" alt="" source={ruby} width={117} height={92} />
 
       <Button onPress={onPress}>Play</Button>
 
