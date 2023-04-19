@@ -1,48 +1,27 @@
-import * as React from 'react';
-import { Box, Pressable, Text } from 'native-base';
+import React from 'react';
+import { Box, Pressable, Text, useColorMode } from 'native-base';
 import { isCorrect } from 'app/domain/isCorrect';
 import { useGetAnswers } from 'app/hooks/useGetAnswers';
 import type { TChoice, TQuizItem } from 'app/types/TQuizItem';
 import type { TQuizAnswer } from 'app/types/TQuizState';
 
 import { useCurrentQuizItem } from '../../hooks/useCurrentQuizItem';
+import { styles } from './Choice.styles';
 import { useSelectAnswer } from './hooks/useSelectAnswer';
 
 function choiceStyle(
   choice: TChoice,
   answer: TQuizAnswer,
   rightAnswer: string,
+  style,
 ) {
-  const styles = {
-    normal: {
-      backgroundColor: 'muted.50',
-      borderSize: 2,
-      borderColor: 'muted.50',
-    },
-    correct: {
-      backgroundColor: 'emerald.300',
-      borderSize: 2,
-      borderColor: 'emerald.300',
-    },
-    incorrect: {
-      backgroundColor: 'rose.300',
-      borderSize: 2,
-      borderColor: 'rose.300',
-    },
-    correctHint: {
-      backgroundColor: null,
-      borderSize: 2,
-      borderColor: 'emerald.300',
-    },
-  };
-
   if (answer?.choice?.index !== choice.index) {
     return answer && choice.index === rightAnswer
-      ? styles.correctHint
-      : styles.normal;
+      ? style.correctHint
+      : style.normal;
   }
 
-  return isCorrect(choice) ? styles.correct : styles.incorrect;
+  return isCorrect(choice) ? style.correct : style.incorrect;
 }
 
 type TProps = {
@@ -62,7 +41,14 @@ export function Choice({ choice, quizItem }: TProps) {
     selectAnswer({ choice, quizItem });
   };
 
-  const style = choiceStyle(choice, answers[quizItem.id], quizItem.answer);
+  const { colorMode } = useColorMode();
+  const themedStyle = styles(colorMode);
+  const style = choiceStyle(
+    choice,
+    answers[quizItem.id],
+    quizItem.answer,
+    themedStyle,
+  );
 
   return (
     <Pressable py="1" onPress={onSelectAnswer} width="100%">

@@ -1,6 +1,6 @@
 import { AppRegistry } from 'react-native';
-import { AppWithNavigation } from 'app/modules/app/AppWithNavigation';
+import { ThemedApp } from 'app/modules/app/ThemedApp';
 
 import { name as appName } from './app.json';
 
-AppRegistry.registerComponent(appName, () => AppWithNavigation);
+AppRegistry.registerComponent(appName, () => ThemedApp);

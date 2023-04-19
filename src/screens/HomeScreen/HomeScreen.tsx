@@ -5,6 +5,7 @@ import ruby from 'app/assets/img/ruby.png';
 import { useStartQuiz } from 'app/hooks/useStartQuiz';
 import { ProgressMapScreen } from 'app/screens/ProgressMapScreen';
 import type { RootStackParamList } from 'app/types/app';
+import { Screen } from 'app/ui/Screen/Screen';
 
 import { PercentProgress } from './components/PercentProgress';
 import { useResetQuiz } from './hooks/useResetQuiz';
@@ -30,19 +31,21 @@ export function HomeScreen({ navigation }: Props) {
   };
 
   return (
-    <Center h="100%" w="100%" alignSelf="center">
-      <Image mb="10" mt="40" alt="" source={ruby} width={117} height={92} />
+    <Screen>
+      <Center h="100%" w="100%" alignSelf="center">
+        <Image mb="10" mt="40" alt="" source={ruby} width={117} height={92} />
 
-      <Button onPress={onPress}>Play</Button>
+        <Button onPress={onPress}>Play</Button>
 
-      <Pressable mt="20" onPress={onPressProgress} w="70%">
-        <Center>
-          <PercentProgress />
-          <Box h="50" w="100%">
-            <ProgressMapScreen />
-          </Box>
-        </Center>
-      </Pressable>
-    </Center>
+        <Pressable mt="20" onPress={onPressProgress} w="70%">
+          <Center>
+            <PercentProgress />
+            <Box h="50" w="100%">
+              <ProgressMapScreen />
+            </Box>
+          </Center>
+        </Pressable>
+      </Center>
+    </Screen>
   );
 }

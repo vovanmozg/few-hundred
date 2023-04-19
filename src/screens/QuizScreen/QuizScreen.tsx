@@ -1,7 +1,7 @@
 import React from 'react';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Box } from 'native-base';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from 'app/types/app';
+import { Screen } from 'app/ui/Screen/Screen';
 
 import { Quiz } from './components/Quiz';
 import { useSetNavigationTitle } from './hooks/useSetNavigationTitle';
@@ -12,8 +12,8 @@ export function QuizScreen({ navigation }: Props) {
   useSetNavigationTitle({ navigation });
 
   return (
-    <Box bg="white" p="1" h="100%" w="100%" alignSelf="center">
+    <Screen>
       <Quiz />
-    </Box>
+    </Screen>
   );
 }

@@ -13,3 +13,7 @@
 - Add likes above question
 - Add rate button (with link to google play)
 - Localization (https://github.com/stefalda/ReactNativeLocalization)
+
+### Used patterns
+- Hooks
+- Module

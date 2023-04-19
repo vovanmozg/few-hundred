@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { Box } from 'native-base';
 import type { LayoutChangeEvent } from 'react-native';
 import { useReadProgress } from 'app/hooks/useReadProgress';
+import { Screen } from 'app/ui/Screen/Screen';
 
 import { SvgProgress } from './SvgProgress';
 import type { Dimensions } from './types';
@@ -25,8 +26,10 @@ export function ProgressMapScreen() {
   const { size, onLayout } = useComponentSize();
 
   return (
-    <Box p="0" onLayout={onLayout} w="100%" h="100%">
-      {size && <SvgProgress progressWeights={progressWeights} size={size} />}
-    </Box>
+    <Screen>
+      <Box p="0" onLayout={onLayout} w="100%" h="100%">
+        {size && <SvgProgress progressWeights={progressWeights} size={size} />}
+      </Box>
+    </Screen>
   );
 }

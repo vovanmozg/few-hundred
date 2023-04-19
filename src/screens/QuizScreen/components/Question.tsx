@@ -1,20 +1,21 @@
-import * as React from 'react';
-import { Box } from 'native-base';
+import React from 'react';
+import { Box, useColorMode } from 'native-base';
 import { useWindowDimensions } from 'react-native';
 import HTML from 'react-native-render-html';
-import { bg } from 'app/debug';
 import { formatHtml } from 'app/lib/formatHtml';
-import { classesStyles, tagsStyles } from 'app/lib/formatHtmlStyles';
+import { classesStyles, tagsStyles } from 'app/theme/formatHtmlStyles';
 
 type TProps = { text: string };
 
 export function Question({ text }: TProps) {
   const { width } = useWindowDimensions();
+  const { colorMode } = useColorMode();
+
   return (
-    <Box bg={bg('blue.400')} p="2">
+    <Box p="2">
       <HTML
         source={{ html: formatHtml(text) }}
-        classesStyles={classesStyles}
+        classesStyles={classesStyles(colorMode)}
         tagsStyles={tagsStyles}
         contentWidth={width}
       />

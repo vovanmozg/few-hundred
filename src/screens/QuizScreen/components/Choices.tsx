@@ -1,7 +1,5 @@
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Radio } from 'native-base';
-import { bg } from 'app/debug';
 import type { TChoice } from 'app/types/TQuizItem';
 
 import { useCurrentQuizItem } from '../hooks/useCurrentQuizItem';
@@ -18,14 +16,14 @@ export function Choices() {
     }
 
     setChoices(currentQuizItem.choices.sort(randSort));
-  }, [currentQuizItem?.choices]);
+  }, [currentQuizItem, currentQuizItem?.choices]);
 
   if (!currentQuizItem) {
     return null;
   }
 
   return (
-    <Box bg={bg('blue.400')}>
+    <Box p="2">
       <Radio.Group name="choices" accessibilityLabel="choices">
         {choices.map((choice: TChoice) => {
           return (

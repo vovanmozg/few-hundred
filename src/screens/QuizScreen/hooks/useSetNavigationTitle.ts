@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useStore } from 'app/store/quizState';
 import type { RootStackParamList } from 'app/types/app';
 import type { TQuizState } from 'app/types/TQuizState';
