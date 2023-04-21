@@ -41,7 +41,7 @@
     "@tsconfig/react-native": "^3.0.0",
     "@types/jest": "^29.5.1",
     "@types/lodash": "^4.14.194",
-    "@types/react": "^18.0.37",
+    "@types/react": "^18.0.38",
     "@types/react-native-vector-icons": "^6.4.13",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.5.0",
