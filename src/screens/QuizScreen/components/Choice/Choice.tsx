@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAnalytics } from '@segment/analytics-react-native';
 import { Box, Pressable, Text, useColorMode } from 'native-base';
 import { isCorrect } from 'app/domain/isCorrect';
 import { useGetAnswers } from 'app/hooks/useGetAnswers';
@@ -29,6 +30,7 @@ type TProps = {
   choice: TChoice;
 };
 export function Choice({ choice, quizItem }: TProps) {
+  const { track } = useAnalytics();
   const selectAnswer = useSelectAnswer();
   const answers = useGetAnswers();
   const { isAnswerSelected } = useCurrentQuizItem();
@@ -37,6 +39,12 @@ export function Choice({ choice, quizItem }: TProps) {
     if (isAnswerSelected) {
       return;
     }
+
+    track('Question answered', {
+      questionId: quizItem.id,
+      answer: quizItem.answer,
+      success: answers[quizItem.id]?.choice?.index === choice.index,
+    });
 
     selectAnswer({ choice, quizItem });
   };
