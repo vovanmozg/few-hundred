@@ -3,10 +3,11 @@ import {
   AnalyticsProvider,
   createClient,
 } from '@segment/analytics-react-native';
+import Config from 'react-native-config';
 import { AppWithNavigation } from 'app/modules/app/AppWithNavigation';
 
 const segmentClient = createClient({
-  writeKey: 'KEY',
+  writeKey: Config.SEGMENT_KEY || '',
   trackAppLifecycleEvents: true,
 });
 
