@@ -62,3 +62,7 @@ yarn-error.log
 # Temporary files created by Metro to check the health of the file watcher
 .metro-health-check*
 .env
+android/app/few_hundred.keystore.asc
+android/app/google-services.json
+android/app/some_signing_key.jks.base64.txt
+ios/FewHundred.xcodeproj/GoogleService-Info
