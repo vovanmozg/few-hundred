@@ -3172,7 +3172,7 @@
   dependencies:
     "@react-types/shared" "^3.17.0"
 
-"@segment/analytics-react-native@^2.14.0":
+"@segment/analytics-react-native@^2.15.0":
   version "2.15.0"
   resolved "https://registry.yarnpkg.com/@segment/analytics-react-native/-/analytics-react-native-2.15.0.tgz#3fd4cf509922f5069c6b98892df0024bd70cff68"
   integrity sha512-c+HyWgfN2IwFAWb5wsPxniHtILp5GJKK0G4diT6+aR6xPqfnX8u3gl/vkqUVIPfO+g6shENGBqoz5Jv1Hs/9jg==
@@ -3191,7 +3191,7 @@
     deepmerge "^4.2.2"
     shell-quote "1.8.0"
 
-"@segment/sovran-react-native@^1.0.3":
+"@segment/sovran-react-native@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@segment/sovran-react-native/-/sovran-react-native-1.0.4.tgz#862c9c01c15f5ea81a77012c6e720ebd56153ccc"
   integrity sha512-oeIjspLOX9V+YmM7arZ+OXCyjooKdurnyVji+sj8OVkw+tUcXtvy+m9oC8E4yqazR/tghWCYE+tCriNx4jsVTw==
