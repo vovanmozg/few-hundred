@@ -55,7 +55,7 @@
     json5 "^2.2.2"
     semver "^6.3.0"
 
-"@babel/core@^7.22.1":
+"@babel/core@^7.22.5":
   version "7.22.5"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.22.5.tgz#d67d9747ecf26ee7ecd3ebae1ee22225fe902a89"
   integrity sha512-SBuTAjg91A3eKOvD+bPEz3LlhHZRNu1nFOVts9lzDJTXshHTjII0BAtDS3Y2DAkdZdDKWVZGVwkDfc4Clxn1dg==
@@ -1405,7 +1405,7 @@
     "@babel/helper-create-regexp-features-plugin" "^7.22.5"
     "@babel/helper-plugin-utils" "^7.22.5"
 
-"@babel/preset-env@^7.22.2":
+"@babel/preset-env@^7.22.5":
   version "7.22.5"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.22.5.tgz#3da66078b181f3d62512c51cf7014392c511504e"
   integrity sha512-fj06hw89dpiZzGZtxn+QybifF07nNiZjZ7sazs2aVDcysAZVGjW7+7iFYxg6GLNM47R/thYfLdrXc+2f11Vi9A==
@@ -1543,7 +1543,7 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@babel/runtime@^7.22.0":
+"@babel/runtime@^7.22.5":
   version "7.22.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.5.tgz#8564dd588182ce0047d55d7a75e93921107b57ec"
   integrity sha512-ecjvYlnAaZ/KVneE/OdKYBYfgXV3Ptu6zQWmgEF7vwKhQnvVS6bjMD2XYgj+SNvQ1GfK/pjgokfPkC/2CO8CuA==
@@ -7305,7 +7305,7 @@ metro-react-native-babel-preset@0.73.10:
     "@babel/template" "^7.0.0"
     react-refresh "^0.4.0"
 
-metro-react-native-babel-preset@^0.76.5:
+metro-react-native-babel-preset@^0.76.7:
   version "0.76.7"
   resolved "https://registry.yarnpkg.com/metro-react-native-babel-preset/-/metro-react-native-babel-preset-0.76.7.tgz#dfe15c040d0918147a8b0e9f530d558287acbb54"
   integrity sha512-R25wq+VOSorAK3hc07NW0SmN8z9S/IR0Us0oGAsBcMZnsgkbOxu77Mduqf+f4is/wnWHc5+9bfiqdLnaMngiVw==
