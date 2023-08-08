@@ -8567,10 +8567,10 @@ rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
-ruby-questions@^0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/ruby-questions/-/ruby-questions-0.19.0.tgz#7ce8c17ca607e17e1eaaeabeaa28f721aff42487"
-  integrity sha512-F+2pCp8QHMY6FxmQrHt6dC5Hw8Gn1z1kmdaQ3vk0XFl476UY/100QgscY33ykT3/7UvqbCglNFa7IR/hz3ultw==
+ruby-questions@^0.20.0:
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/ruby-questions/-/ruby-questions-0.20.0.tgz#9e277e02378375802f1d09553f686f0f697fcf2a"
+  integrity sha512-IZAUfoEF8/b4kdGZAXeTWeToS5TlC03By+hd5hi+kEpKhoSBap9fgp10VXMxU+Ov9MUAyfbLD4OQeJF7x3iTAA==
 
 run-parallel@^1.1.9:
   version "1.2.0"
