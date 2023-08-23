@@ -12,7 +12,6 @@ Leverage the power of interactive quizzes to master programming languages. "You 
 This is standard React Native app. [More information about how to setup your environment](https://reactnative.dev/docs/environment-setup).
 
 ## 🚀 Roadmap
-
 - Change hardcoded colors with theme colors
 - Add settings
   - Set hard/easy mode in settings
