@@ -23,7 +23,7 @@ export function Quiz() {
       </Box>
 
       {/* <Debug /> */}
-      <Box w="100%" pt="2" position="absolute" bottom="0" right="0">
+      <Box w="100%" pt="2" position="absolute" bottom="3" right="3">
         <Next />
       </Box>
     </Box>

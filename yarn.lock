@@ -9577,10 +9577,10 @@ rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
-ruby-questions@^0.20.0:
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/ruby-questions/-/ruby-questions-0.20.0.tgz#9e277e02378375802f1d09553f686f0f697fcf2a"
-  integrity sha512-IZAUfoEF8/b4kdGZAXeTWeToS5TlC03By+hd5hi+kEpKhoSBap9fgp10VXMxU+Ov9MUAyfbLD4OQeJF7x3iTAA==
+ruby-questions@^0.22.0:
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/ruby-questions/-/ruby-questions-0.22.0.tgz#513527be113cad803bdc2a40ed74ab876a4ab0cf"
+  integrity sha512-7nCBSmi9LaXB6sTwHIwRQqkELtMfKnqf0k8QxS0yx0edpQynL0LoJuISXIkB52tMKtKLf34yC1zeMVjFk7JyQg==
 
 run-parallel@^1.1.9:
   version "1.2.0"
